@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13C4BD9D21F47C1A00060742 /* 06-earthquake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "06-earthquake.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宮崎津波防災.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4BDA021F47C1A00060742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13C4BDA221F47C1A00060742 /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		13C4BDA421F47C1A00060742 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		13C4BD9E21F47C1A00060742 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13C4BD9D21F47C1A00060742 /* 06-earthquake.app */,
+				13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */,
 				13C4BDB321F47C1E00060742 /* 06-earthquakeTests.xctest */,
 				13C4BDBE21F47C1E00060742 /* 06-earthquakeUITests.xctest */,
 			);
@@ -145,7 +145,7 @@
 			);
 			name = "06-earthquake";
 			productName = "06-earthquake";
-			productReference = 13C4BD9D21F47C1A00060742 /* 06-earthquake.app */;
+			productReference = 13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */;
 			productType = "com.apple.product-type.application";
 		};
 		13C4BDB221F47C1E00060742 /* 06-earthquakeTests */ = {
@@ -207,7 +207,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 13C4BD9821F47C1A00060742 /* Build configuration list for PBXProject "06-earthquake" */;
+			buildConfigurationList = 13C4BD9821F47C1A00060742 /* Build configuration list for PBXProject "m-tsunami-ios" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -444,7 +444,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.06-earthquake.-6-earthquake";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -462,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.06-earthquake.-6-earthquake";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,7 +553,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13C4BD9821F47C1A00060742 /* Build configuration list for PBXProject "06-earthquake" */ = {
+		13C4BD9821F47C1A00060742 /* Build configuration list for PBXProject "m-tsunami-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13C4BDC521F47C1E00060742 /* Debug */,

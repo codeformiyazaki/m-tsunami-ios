@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:06-earthquake.xcodeproj">
+      location = "self:/Users/yosei/sources/code4miyazaki01/iosapp/m-tsunami-ios.xcodeproj">
    </FileRef>
 </Workspace>
