@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import _6_earthquake
 
 class _6_earthquakeTests: XCTestCase {
 
