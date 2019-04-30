@@ -133,6 +133,9 @@
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4G-9S-2LS">
                                 <rect key="frame" x="0.0" y="51" width="375" height="567"/>
+                                <connections>
+                                    <outlet property="delegate" destination="weR-rN-Xxu" id="bZX-yo-rbk"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
