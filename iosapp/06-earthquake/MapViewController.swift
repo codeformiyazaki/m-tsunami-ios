@@ -53,6 +53,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         if av == nil {
             av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "id")
             av!.glyphImage = UIImage(named: "building")
+            av!.markerTintColor = UIColor.gray
         } else {
             av!.annotation = annotation
         }
