@@ -19,15 +19,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="627-9g-Nd8">
-                                <rect key="frame" x="0.0" y="51" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="344.5" width="375" height="274.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gMV-lw-cd2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="49L-QU-UdP" detailTextLabel="hd4-vX-VNk" imageView="ges-eZ-hV9" style="IBUITableViewCellStyleSubtitle" id="gMV-lw-cd2">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gMV-lw-cd2" id="BhE-Vb-MIR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="49L-QU-UdP">
+                                                    <rect key="frame" x="74" y="7" width="28.5" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hd4-vX-VNk">
+                                                    <rect key="frame" x="74" y="24" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="earthquake" id="ges-eZ-hV9">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="8" right="8"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -45,16 +66,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="気象庁防災情報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chF-au-cBj">
+                                <rect key="frame" x="16" y="322.5" width="343" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="JVY-pN-OWt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="627-9g-Nd8" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="96d-Cm-xM8"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="8rG-CD-E0c" secondAttribute="trailing" constant="16" id="Dq0-JZ-uKX"/>
-                            <constraint firstItem="627-9g-Nd8" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="JEq-Ni-V8s"/>
-                            <constraint firstItem="627-9g-Nd8" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="OcS-Og-08h"/>
                             <constraint firstItem="8rG-CD-E0c" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="UaP-RU-Uam"/>
-                            <constraint firstItem="627-9g-Nd8" firstAttribute="top" secondItem="8rG-CD-E0c" secondAttribute="bottom" constant="8" id="ZXV-v9-8ne"/>
+                            <constraint firstItem="627-9g-Nd8" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="WUs-51-ovJ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="chF-au-cBj" secondAttribute="trailing" constant="16" id="XdP-jE-9mW"/>
+                            <constraint firstAttribute="bottom" secondItem="627-9g-Nd8" secondAttribute="bottom" constant="48" id="Xy8-vg-klb"/>
                             <constraint firstItem="8rG-CD-E0c" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="eC1-52-UtX"/>
+                            <constraint firstItem="627-9g-Nd8" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="eyj-6o-7V0"/>
+                            <constraint firstItem="chF-au-cBj" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="i2g-ZM-tIg"/>
+                            <constraint firstItem="627-9g-Nd8" firstAttribute="top" secondItem="chF-au-cBj" secondAttribute="bottom" id="kT6-Q2-bq4"/>
+                            <constraint firstItem="chF-au-cBj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="u29-mz-Ezt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -65,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="-516"/>
+            <point key="canvasLocation" x="637.60000000000002" y="-516.79160419790105"/>
         </scene>
         <!--GIS-->
         <scene sceneID="wg7-f3-ORb">
@@ -197,6 +230,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="earthquake" width="256" height="256"/>
         <image name="light-beacon" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="nearby-alt" width="32" height="32"/>

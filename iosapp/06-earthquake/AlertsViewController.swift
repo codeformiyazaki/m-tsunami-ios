@@ -25,49 +25,61 @@ class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDe
         let result = parser.parse()
         print("parse result = \(result)")
         print(parser)
-
-        
     }
 
     // --
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        return contents.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = rows[indexPath.row]
+        cell.imageView?.image = UIImage(named: icons[indexPath.row])
+        cell.textLabel?.text = contents[indexPath.row]
+        cell.detailTextLabel?.text = updates[indexPath.row]
         return cell
     }
-    
+
     // --
     var currentElement :String = ""
-    var currentTitle :String = ""
-    var rows :[String] = []
+    var shouldAdd = false
+    var contents :[String] = []
+    var updates :[String] = []
+    var icons :[String] = []
 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
     }
-    
+
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         let s = string.trimmingCharacters(in: .newlines)
         if (s.isEmpty) { return }
         if (currentElement == "content") {
-            if currentTitle.starts(with: "噴火") || currentTitle.starts(with: "震源"){
-            rows += [s]
+            if shouldAdd {
+                let ss = s.components(separatedBy: "】")
+                let v = ss[ss.count - 1].replacingOccurrences(of: "　", with: "")
+                let vv = v.replacingOccurrences(of: "\n", with: " ")
+                contents += [vv]
             }
-            print(s)
         }
         if (currentElement == "updated") {
-            print("  at: "+s)
+            if shouldAdd {
+                updates += [s]
+            }
         }
         if (currentElement == "title") {
-            currentTitle = s
+            shouldAdd = false
+            if s.starts(with: "噴火") {
+                icons += ["volcano"]
+                shouldAdd = true
+            } else if s.starts(with: "震源") {
+                icons += ["earthquake"]
+                shouldAdd = true
+            }
         }
     }
-    
+
     func parserDidEndDocument(_ parser: XMLParser) {
         tableView.reloadData()
     }
 }
-
