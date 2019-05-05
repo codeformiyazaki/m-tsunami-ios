@@ -18,6 +18,7 @@
 		13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C4BDAB21F47C1D00060742 /* LaunchScreen.storyboard */; };
 		13C4BDB821F47C1E00060742 /* _6_earthquakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDB721F47C1E00060742 /* _6_earthquakeTests.swift */; };
 		13C4BDC321F47C1E00060742 /* _6_earthquakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */; };
+		74925C95227EAAF400DECF18 /* buildings_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 74B13542227EA5CB00C674E9 /* buildings_locations.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		13C4BDBE21F47C1E00060742 /* 06-earthquakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "06-earthquakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_earthquakeUITests.swift; sourceTree = "<group>"; };
 		13C4BDC421F47C1E00060742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74B13542227EA5CB00C674E9 /* buildings_locations.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = buildings_locations.csv; path = "/Users/ShuntaroMiwa/m-tsunami-ios/iosapp/06-earthquake/buildings_locations.csv"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		13C4BD9F21F47C1A00060742 /* 06-earthquake */ = {
 			isa = PBXGroup;
 			children = (
+				74B13542227EA5CB00C674E9 /* buildings_locations.csv */,
 				13C4BDA021F47C1A00060742 /* AppDelegate.swift */,
 				13C4BDA221F47C1A00060742 /* AlertsViewController.swift */,
 				13C4BDA421F47C1A00060742 /* HinataViewController.swift */,
@@ -254,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74925C95227EAAF400DECF18 /* buildings_locations.csv in Resources */,
 				13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */,
 				13C4BDAA21F47C1D00060742 /* Assets.xcassets in Resources */,
 				13C4BDA821F47C1A00060742 /* Main.storyboard in Resources */,

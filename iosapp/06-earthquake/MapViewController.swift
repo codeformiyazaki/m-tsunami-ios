@@ -11,6 +11,7 @@ import MapKit
 
 class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    var csvLines = [String]()
     
     let lm = CLLocationManager()
     
@@ -19,7 +20,15 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         
         lm.requestWhenInUseAuthorization()
         lm.startUpdatingLocation()
+        guard let path = Bundle.main.path(forResource:"buildings_locations", ofType:"csv") else {
+            print("csvファイルがないよ")
+            return
+        }
+        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        csvLines = csvString.components(separatedBy: .newlines)
     }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         var r = mapView.region
@@ -28,19 +37,17 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }
         r.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         mapView.setRegion(r, animated: true)
-        
-        
-        let data =
-            [["ティープリモ権現町","標高6m RC 5F","31.92896","131.432472"],["宮崎観光ホテル東館","標高5.3m SRC 13F","31.905684","131.426782"],["TYⅡマンション","標高5.5m RC 6F","31.920798","131.428084"],["セ・ラ・ヴィ柳丸","標高5.8m RC 7F","31.926081","131.434318"],["コアマンション柳丸","標高6.4m RC 9F","31.928688","131.433429"]]
-        
-        for row in data {
+
+        for line in csvLines {
+            if line == "" { continue }
+            let row = line.components(separatedBy: ",")
             let pa = MKPointAnnotation()
-            let lat = Double(row[2]) ?? 0
-            let lng = Double(row[3]) ?? 0
+            let lat = Double(row[6]) ?? 0
+            let lng = Double(row[7]) ?? 0
             pa.coordinate = CLLocationCoordinate2DMake(
                 lat,lng)
-            pa.title = row[0]
-            pa.subtitle = row[1]
+            pa.title = row[1]
+            pa.subtitle = "標高" + row[3] + "m " + row[4] + " " + row[5] + "階"
             mapView.addAnnotation(pa)
             print(row[0]+": "+row[1])
         }
