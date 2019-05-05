@@ -42,6 +42,7 @@ class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDe
     
     // --
     var currentElement :String = ""
+    var currentTitle :String = ""
     var rows :[String] = []
 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
@@ -52,11 +53,16 @@ class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDe
         let s = string.trimmingCharacters(in: .newlines)
         if (s.isEmpty) { return }
         if (currentElement == "content") {
+            if currentTitle.starts(with: "噴火") || currentTitle.starts(with: "震源"){
             rows += [s]
+            }
             print(s)
         }
         if (currentElement == "updated") {
             print("  at: "+s)
+        }
+        if (currentElement == "title") {
+            currentTitle = s
         }
     }
     
