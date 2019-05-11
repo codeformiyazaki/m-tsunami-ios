@@ -9,9 +9,13 @@
 import UIKit
 import MapKit
 
+class TolietAnnotation : MKPointAnnotation {}
+class BuildingAnnotation : MKPointAnnotation {}
+
 class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
-    var csvLines = [String]()
+    var buildings = [String]()
+    var toilets = [String]()
 
     let lm = CLLocationManager()
     var route:MKRoute?
@@ -21,9 +25,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
         lm.requestWhenInUseAuthorization()
         lm.startUpdatingLocation()
-        let path = Bundle.main.path(forResource:"buildings_locations", ofType:"csv")!
-        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
-        csvLines = csvString.components(separatedBy: .newlines)
+        buildings = loadCSV(name: "buildings_locations")
+        toilets = loadCSV(name: "toilets_locations")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,10 +37,10 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         r.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         mapView.setRegion(r, animated: true)
         
-        for line in csvLines {
+        for line in buildings {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
-            let pa = MKPointAnnotation()
+            let pa = BuildingAnnotation()
             let lat = Double(row[6]) ?? 0
             let lng = Double(row[7]) ?? 0
             
@@ -47,17 +50,37 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             pa.subtitle = "標高" + row[3] + "m " + row[4] + " " + row[5] + "階"
             mapView.addAnnotation(pa)
         }
+
+        for line in toilets {
+            if line == "" { continue }
+            let row = line.components(separatedBy: ",")
+            let pa = TolietAnnotation()
+            let lat = Double(row[2]) ?? 0
+            let lng = Double(row[3]) ?? 0
+
+            pa.coordinate = CLLocationCoordinate2DMake(
+                lat,lng)
+            pa.title = row[0]
+            pa.subtitle = "トイレ" + row[1] + "個"
+            mapView.addAnnotation(pa)
+        }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
-        var av = mapView.dequeueReusableAnnotationView(withIdentifier: "id") as? MKMarkerAnnotationView
+        var name = "building"
+        var color = UIColor.gray
+        if annotation is TolietAnnotation {
+            name = "toilet"
+            color = UIColor.brown
+        }
+        var av = mapView.dequeueReusableAnnotationView(withIdentifier: name) as? MKMarkerAnnotationView
         if av == nil {
-            av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "id")
-            av!.glyphImage = UIImage(named: "building")
-            av!.markerTintColor = UIColor.gray
+            av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: name)
+            av!.glyphImage = UIImage(named: name)
+            av!.markerTintColor = color
         } else {
             av!.annotation = annotation
         }
@@ -101,5 +124,11 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             let rect = new_route.polyline.boundingMapRect.insetBy(dx: -600, dy: -600)
             self.mapView.setRegion(MKCoordinateRegion(rect),animated: true)
         }
+    }
+
+    private func loadCSV(name:String) -> [String]{
+        let path = Bundle.main.path(forResource:name, ofType:"csv")!
+        let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        return csvString.components(separatedBy: .newlines)
     }
 }

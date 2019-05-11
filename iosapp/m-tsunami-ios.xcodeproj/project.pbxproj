@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 131385E02286B5DD003E6D62 /* toilets_locations.csv */; };
 		139ED4ED227EE0D800B3AAC3 /* buildings_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */; };
 		13BC4FC622588FF3003C240D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC522588FF3003C240D /* WebKit.framework */; };
 		13BC4FC822589396003C240D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC722589396003C240D /* MapKit.framework */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131385E02286B5DD003E6D62 /* toilets_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toilets_locations.csv; sourceTree = "<group>"; };
 		139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildings_locations.csv; sourceTree = "<group>"; };
 		13BC4FC522588FF3003C240D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		13BC4FC722589396003C240D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -119,6 +121,7 @@
 		13C4BD9F21F47C1A00060742 /* 06-earthquake */ = {
 			isa = PBXGroup;
 			children = (
+				131385E02286B5DD003E6D62 /* toilets_locations.csv */,
 				139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */,
 				13C4BDA021F47C1A00060742 /* AppDelegate.swift */,
 				13C4BDA221F47C1A00060742 /* AlertsViewController.swift */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */,
 				13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */,
 				139ED4ED227EE0D800B3AAC3 /* buildings_locations.csv in Resources */,
 				13C4BDAA21F47C1D00060742 /* Assets.xcassets in Resources */,
@@ -470,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.06-earthquake.-6-earthquake";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.06-earthquake.-6-earthquake";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
