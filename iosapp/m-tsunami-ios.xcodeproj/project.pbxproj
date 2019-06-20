@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 131385E02286B5DD003E6D62 /* toilets_locations.csv */; };
+		1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1367365622BB99C8004E6E0D /* InfoViewController.swift */; };
+		137330C822B334F800889E6F /* AlertDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137330C722B334F800889E6F /* AlertDetailController.swift */; };
 		139ED4ED227EE0D800B3AAC3 /* buildings_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */; };
 		13BC4FC622588FF3003C240D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC522588FF3003C240D /* WebKit.framework */; };
 		13BC4FC822589396003C240D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC722589396003C240D /* MapKit.framework */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		131385E02286B5DD003E6D62 /* toilets_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toilets_locations.csv; sourceTree = "<group>"; };
+		1367365622BB99C8004E6E0D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		137330C722B334F800889E6F /* AlertDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailController.swift; sourceTree = "<group>"; };
 		139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildings_locations.csv; sourceTree = "<group>"; };
 		13BC4FC522588FF3003C240D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		13BC4FC722589396003C240D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -125,12 +129,14 @@
 				139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */,
 				13C4BDA021F47C1A00060742 /* AppDelegate.swift */,
 				13C4BDA221F47C1A00060742 /* AlertsViewController.swift */,
+				137330C722B334F800889E6F /* AlertDetailController.swift */,
 				13C4BDA421F47C1A00060742 /* HinataViewController.swift */,
 				13BC4FC922589B35003C240D /* MapViewController.swift */,
 				13C4BDA621F47C1A00060742 /* Main.storyboard */,
 				13C4BDA921F47C1D00060742 /* Assets.xcassets */,
 				13C4BDAB21F47C1D00060742 /* LaunchScreen.storyboard */,
 				13C4BDAE21F47C1D00060742 /* Info.plist */,
+				1367365622BB99C8004E6E0D /* InfoViewController.swift */,
 			);
 			path = "06-earthquake";
 			sourceTree = "<group>";
@@ -289,9 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				137330C822B334F800889E6F /* AlertDetailController.swift in Sources */,
 				13C4BDA521F47C1A00060742 /* HinataViewController.swift in Sources */,
 				13C4BDA121F47C1A00060742 /* AppDelegate.swift in Sources */,
 				13C4BDA321F47C1A00060742 /* AlertsViewController.swift in Sources */,
+				1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */,
 				13BC4FCA22589B35003C240D /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -495,7 +503,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

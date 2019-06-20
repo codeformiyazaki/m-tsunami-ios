@@ -40,15 +40,29 @@ class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDe
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let adc = segue.destination as? AlertDetailController else { return }
+        guard let row = tableView.indexPathForSelectedRow else { return }
+        adc.loadXml(url: links[row.row])
+    }
+
     // --
     var currentElement :String = ""
     var shouldAdd = false
     var contents :[String] = []
     var updates :[String] = []
     var icons :[String] = []
+    var links :[String] = []
 
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         currentElement = elementName
+        if (currentElement == "link") {
+            guard let href = attributeDict["href"] else { return }
+            print(href)
+            if shouldAdd {
+                links += [href]
+            }
+        }
     }
 
     func parser(_ parser: XMLParser, foundCharacters string: String) {
