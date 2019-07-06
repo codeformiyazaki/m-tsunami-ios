@@ -259,11 +259,89 @@
                     <tabBarItem key="tabBarItem" title="Map" image="nearby-alt" selectedImage="nearby-alt" id="UPg-DY-7Ma"/>
                     <connections>
                         <outlet property="mapView" destination="F4G-9S-2LS" id="24D-yY-uTg"/>
+                        <segue destination="T8M-wF-XNg" kind="showDetail" identifier="iinami" id="gBg-0w-nbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZB-J8-oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="257.72113943028489"/>
+        </scene>
+        <!--Iinami View Controller-->
+        <scene sceneID="sk3-8r-B6Y">
+            <objects>
+                <viewController id="T8M-wF-XNg" customClass="IinamiViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T3X-Qz-dDk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6y-wN-JXK">
+                                <rect key="frame" x="20" y="686" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GZa-VE-Wfl"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="MzC-HG-MNN"/>
+                                </constraints>
+                                <state key="normal" title="閉じる"/>
+                                <connections>
+                                    <action selector="closePushed:" destination="T8M-wF-XNg" eventType="touchUpInside" id="G1D-Vy-hpt"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGX-yH-5WF">
+                                <rect key="frame" x="0.0" y="212.66666666666666" width="414" height="310.66666666666674"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="JGX-yH-5WF" secondAttribute="height" multiplier="4:3" id="bRM-bT-BnV"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ade-v1-Tnr">
+                                <rect key="frame" x="313" y="648" width="81" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="81" id="0jm-vv-XAI"/>
+                                    <constraint firstAttribute="height" constant="30" id="e7h-5N-Ctw"/>
+                                </constraints>
+                                <state key="normal" title="ii-nami.com"/>
+                                <connections>
+                                    <action selector="iinamiPushed:" destination="T8M-wF-XNg" eventType="touchUpInside" id="M8j-eX-fPr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ii-nami.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeb-Ir-WuA">
+                                <rect key="frame" x="20" y="28" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ttf-OL-odw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aeb-Ir-WuA" firstAttribute="top" secondItem="AVh-fM-5B9" secondAttribute="top" constant="8" id="9mg-3W-ZgI"/>
+                            <constraint firstItem="v6y-wN-JXK" firstAttribute="leading" secondItem="AVh-fM-5B9" secondAttribute="leading" constant="20" id="BsE-L0-M6d"/>
+                            <constraint firstItem="ade-v1-Tnr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="AVh-fM-5B9" secondAttribute="leading" constant="313" id="JTW-CE-6Mh"/>
+                            <constraint firstItem="AVh-fM-5B9" firstAttribute="trailing" secondItem="v6y-wN-JXK" secondAttribute="trailing" constant="20" id="Lo8-hb-gMv"/>
+                            <constraint firstItem="JGX-yH-5WF" firstAttribute="leading" secondItem="AVh-fM-5B9" secondAttribute="leading" id="Mss-fP-iXH"/>
+                            <constraint firstItem="AVh-fM-5B9" firstAttribute="trailing" secondItem="ade-v1-Tnr" secondAttribute="trailing" constant="20" id="Nt4-mw-53i"/>
+                            <constraint firstItem="AVh-fM-5B9" firstAttribute="trailing" secondItem="aeb-Ir-WuA" secondAttribute="trailing" constant="20" id="OKa-zi-FPs"/>
+                            <constraint firstItem="JGX-yH-5WF" firstAttribute="trailing" secondItem="AVh-fM-5B9" secondAttribute="trailing" id="XEt-0K-rtJ"/>
+                            <constraint firstItem="AVh-fM-5B9" firstAttribute="bottom" secondItem="v6y-wN-JXK" secondAttribute="bottom" constant="20" id="dFK-Jd-g4F"/>
+                            <constraint firstItem="JGX-yH-5WF" firstAttribute="centerY" secondItem="T3X-Qz-dDk" secondAttribute="centerY" id="iOK-po-ZRE"/>
+                            <constraint firstItem="aeb-Ir-WuA" firstAttribute="leading" secondItem="AVh-fM-5B9" secondAttribute="leading" constant="20" id="wVd-iQ-Nss"/>
+                            <constraint firstItem="v6y-wN-JXK" firstAttribute="top" secondItem="ade-v1-Tnr" secondAttribute="bottom" constant="8" id="z9F-XM-8fB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AVh-fM-5B9"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="aeb-Ir-WuA" id="DeN-ec-Xpr"/>
+                        <outlet property="webView" destination="JGX-yH-5WF" id="7qW-HM-f1t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="itb-e5-plh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2379.7101449275365" y="257.60869565217394"/>
         </scene>
         <!--Info-->
         <scene sceneID="ge1-2X-Yfy">

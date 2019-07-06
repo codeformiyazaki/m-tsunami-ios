@@ -11,14 +11,20 @@ import MapKit
 
 class TolietAnnotation : MKPointAnnotation {}
 class BuildingAnnotation : MKPointAnnotation {}
+class WebcamAnnotation : MKPointAnnotation {}
 
 class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var buildings = [String]()
     var toilets = [String]()
+    var webcams = [String]()
 
     let lm = CLLocationManager()
     var route:MKRoute?
+    var webcam_title:String?
+    var webcam_url:URL?
+
+    var needResetRegion:Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,30 +33,21 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         lm.startUpdatingLocation()
         buildings = loadCSV(name: "buildings_locations")
         toilets = loadCSV(name: "toilets_locations")
-    }
+        webcams = loadCSV(name: "webcams_locations")
 
-    override func viewDidAppear(_ animated: Bool) {
-        var r = mapView.region
-        if let cood = lm.location?.coordinate {
-            r.center = cood
-        }
-        r.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        mapView.setRegion(r, animated: true)
-        
         for line in buildings {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
             let pa = BuildingAnnotation()
             let lat = Double(row[6]) ?? 0
             let lng = Double(row[7]) ?? 0
-            
+
             pa.coordinate = CLLocationCoordinate2DMake(
                 lat,lng)
             pa.title = row[1]
             pa.subtitle = "標高" + row[3] + "m " + row[4] + " " + row[5] + "階"
             mapView.addAnnotation(pa)
         }
-
         for line in toilets {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
@@ -64,6 +61,35 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             pa.subtitle = "トイレ" + row[1] + "個"
             mapView.addAnnotation(pa)
         }
+        for line in webcams {
+            if line == "" { continue }
+            let row = line.components(separatedBy: ",")
+            let pa = WebcamAnnotation()
+            let lat = Double(row[2]) ?? 0
+            let lng = Double(row[3]) ?? 0
+
+            pa.coordinate = CLLocationCoordinate2DMake(
+                lat,lng)
+            pa.title = row[0]
+            pa.subtitle = "Powered by ii-nami.com"
+            mapView.addAnnotation(pa)
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if needResetRegion {
+            resetRegion()
+            needResetRegion = false
+        }
+    }
+
+    func resetRegion() {
+        var r = mapView.region
+        if let cood = lm.location?.coordinate {
+            r.center = cood
+        }
+        r.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        mapView.setRegion(r, animated: true)
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -75,6 +101,9 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         if annotation is TolietAnnotation {
             name = "toilet"
             color = UIColor.brown
+        } else if annotation is WebcamAnnotation {
+            name = "webcam"
+            color = UIColor.blue
         }
         var av = mapView.dequeueReusableAnnotationView(withIdentifier: name) as? MKMarkerAnnotationView
         if av == nil {
@@ -95,8 +124,22 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
+        guard let a = view.annotation else { return }
+        if a is WebcamAnnotation {
+            webcam_url = nil
+            webcam_title = a.title ?? ""
+            for line in webcams {
+                if line == "" { continue }
+                let row = line.components(separatedBy: ",")
+                if webcam_title == row[0] {
+                    webcam_url = URL(string: row[1])
+                }
+            }
+            self.performSegue(withIdentifier: "iinami", sender: self)
+            return
+        }
         guard let src = lm.location?.coordinate else { return }
-        guard let dst = view.annotation?.coordinate else { return }
+        let dst = a.coordinate
         let p_src = MKPlacemark(coordinate: src)
         let p_dst = MKPlacemark(coordinate: dst)
         
@@ -130,5 +173,11 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         let path = Bundle.main.path(forResource:name, ofType:"csv")!
         let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         return csvString.components(separatedBy: .newlines)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let ivc = segue.destination as? IinamiViewController else { return }
+        ivc.webcam_url = webcam_url
+        ivc.webcam_title = webcam_title
     }
 }
