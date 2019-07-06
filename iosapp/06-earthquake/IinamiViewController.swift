@@ -28,5 +28,7 @@ class IinamiViewController: UIViewController{
     }
     
     @IBAction func iinamiPushed(_ sender: Any) {
+        let url = URL(string: "https://www.ii-nami.com/")!
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
