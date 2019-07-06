@@ -22,9 +22,7 @@ class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDe
             return
         }
         parser.delegate = self
-        let result = parser.parse()
-        print("parse result = \(result)")
-        print(parser)
+        parser.parse()
     }
 
     // --

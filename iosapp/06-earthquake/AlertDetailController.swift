@@ -15,7 +15,17 @@ class AlertDetailController: UIViewController, XMLParserDelegate{
     @IBOutlet weak var mainLabel: UILabel!
 
     func loadXml(url: String) {
-        print(url)
+        let secureURL = url.replacingOccurrences(of: "http", with: "https")
+        guard let u = URL(string: secureURL) else {
+            print("can't parse: "+url)
+            return
+        }
+        guard let parser = XMLParser(contentsOf: u) else {
+            return
+        }
+        parser.delegate = self
+        let result = parser.parse()
+        print("parse result = \(result)")
     }
     
     @IBAction func closePushed(_ sender: Any) {
@@ -50,6 +60,12 @@ class AlertDetailController: UIViewController, XMLParserDelegate{
     }
 
     func parserDidEndDocument(_ parser: XMLParser) {
+        if mainLabel != nil {
+            mainLabel.text = message
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         mainLabel.text = message
     }
 }

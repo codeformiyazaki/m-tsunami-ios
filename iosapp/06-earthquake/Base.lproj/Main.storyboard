@@ -166,7 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="jkV-Ie-Yr8"/>
                     </view>
                     <connections>
-                        <outlet property="mainLabel" destination="JYt-VT-tSY" id="3Wh-TS-y4O"/>
+                        <outlet property="mainLabel" destination="JYt-VT-tSY" id="NCc-cQ-Hdu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9xa-jN-jy2" userLabel="First Responder" sceneMemberID="firstResponder"/>
