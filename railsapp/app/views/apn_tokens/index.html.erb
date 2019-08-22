@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apn Tokens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apn_tokens.each do |apn_token| %>
+      <tr>
+        <td><%= apn_token.token %></td>
+        <td><%= apn_token.type %></td>
+        <td><%= link_to 'Show', apn_token %></td>
+        <td><%= link_to 'Edit', edit_apn_token_path(apn_token) %></td>
+        <td><%= link_to 'Destroy', apn_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Apn Token', new_apn_token_path %>

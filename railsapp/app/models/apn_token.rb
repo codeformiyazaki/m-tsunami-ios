@@ -1,0 +1,2 @@
+class ApnToken < ApplicationRecord
+end
