@@ -83,6 +83,10 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }
     }
 
+    @IBAction func didTapCurrentButton(_ sender: Any) {
+        resetRegion()
+    }
+
     func resetRegion() {
         var r = mapView.region
         if let cood = lm.location?.coordinate {
