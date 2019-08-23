@@ -15,7 +15,7 @@
     <% @apn_tokens.each do |apn_token| %>
       <tr>
         <td><%= apn_token.token %></td>
-        <td><%= apn_token.type %></td>
+        <td><%= apn_token.purpose %></td>
         <td><%= link_to 'Show', apn_token %></td>
         <td><%= link_to 'Edit', edit_apn_token_path(apn_token) %></td>
         <td><%= link_to 'Destroy', apn_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>

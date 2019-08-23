@@ -25,8 +25,9 @@ class ApnTokensController < ApplicationController
   # POST /apn_tokens
   # POST /apn_tokens.json
   def create
-    @apn_token = ApnToken.new(apn_token_params)
-
+    @apn_token = ApnToken.find_by(token: apn_token_params[:token])
+    @apn_token = ApnToken.new(apn_token_params) unless @apn_token
+    @apn_token.updated_at = Time.now
     respond_to do |format|
       if @apn_token.save
         format.html { redirect_to @apn_token, notice: 'Apn token was successfully created.' }
@@ -70,7 +71,7 @@ class ApnTokensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apn_token_params
-      params.require(:apn_token).permit(:token, :type)
+      params.require(:apn_token).permit(:token, :purpose)
     end
 
     def authenticate
