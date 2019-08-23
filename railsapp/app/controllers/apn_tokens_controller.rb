@@ -1,6 +1,7 @@
 class ApnTokensController < ApplicationController
   before_action :set_apn_token, only: [:show, :edit, :update, :destroy]
   before_action :authenticate, except: [:create]
+  protect_from_forgery except: [:create]
 
   # GET /apn_tokens
   # GET /apn_tokens.json
