@@ -2,7 +2,7 @@
 
 - assets: 開発やデータ収集関連のリソースやツール
 - iosapp: iOSアプリ本体
-
+- railsapp: Railsアプリ(push通知管理)
 
 ## 参考リンク
 
@@ -20,3 +20,26 @@
 5. [スプレッドシート](https://docs.google.com/spreadsheets/d/1FdGLrjkuGBtYe4DSTrTFV861ukzReuXsBDEJsw8oS1M/edit?usp=sharing) に転記します。
 
 - [Google Map Help](https://support.google.com/maps/answer/18539?co=GENIE.Platform%3DDesktop&hl=ja)
+
+
+
+## 環境
+### development
+```
+export BASIC_AUTH_PASS=secret
+```
+
+### staging
+https://desolate-headland-83158.herokuapp.com/
+
+```
+sudo snap install heroku --classic
+heroku login
+
+heroku create --remote staging
+git subtree push --prefix railsapp staging master
+git config heroku.remote staging
+heroku config:set BASIC_AUTH_PASS=secret
+heroku run rake db:migrate
+```
+- [Heroku - Getting started with ruby](https://devcenter.heroku.com/articles/getting-started-with-ruby)
