@@ -1,0 +1,32 @@
+<%= form_with(model: apn_token, local: true) do |form| %>
+  <% if apn_token.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apn_token.errors.count, "error") %> prohibited this apn_token from being saved:</h2>
+
+      <ul>
+      <% apn_token.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :token %>
+    <%= form.text_field :token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purpose %>
+    <%= form.text_field :purpose %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memo %>
+    <%= form.text_field :memo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

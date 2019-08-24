@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Token:</strong>
+  <%= @apn_token.token %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @apn_token.purpose %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @apn_token.memo %>
+</p>
+
+<p>
+  <strong>Timestamps:</strong>
+  <%= @apn_token.created_at %>
+  <%= @apn_token.updated_at %>
+</p>
+
+<%= link_to 'Edit', edit_apn_token_path(@apn_token) %> |
+<%= link_to 'Back', apn_tokens_path %>
