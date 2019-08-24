@@ -243,6 +243,13 @@
                                     <outlet property="delegate" destination="weR-rN-Xxu" id="bZX-yo-rbk"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-N5-sfQ">
+                                <rect key="frame" x="10" y="16.666666666666668" width="46" height="30.000000000000004"/>
+                                <state key="normal" title="現在地"/>
+                                <connections>
+                                    <action selector="didTapCurrentButton:" destination="weR-rN-Xxu" eventType="touchUpInside" id="gnK-4B-e5n"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -250,8 +257,11 @@
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="B46-W0-6gW" secondAttribute="trailing" constant="16" id="30Y-dY-GIN"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="top" secondItem="lPu-td-LCo" secondAttribute="top" id="4Hr-Md-F34"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" constant="16" id="8lj-mQ-0w9"/>
+                            <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1ky-N5-sfQ" secondAttribute="trailing" symbolic="YES" id="K4E-qI-X8Z"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="top" secondItem="B46-W0-6gW" secondAttribute="bottom" constant="8" id="e3w-15-faZ"/>
+                            <constraint firstItem="1ky-N5-sfQ" firstAttribute="centerY" secondItem="B46-W0-6gW" secondAttribute="centerY" id="m1W-D6-FA9"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" id="pNw-z9-8Nv"/>
+                            <constraint firstItem="1ky-N5-sfQ" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" constant="10" id="uHT-1V-CKY"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="trailing" secondItem="lPu-td-LCo" secondAttribute="trailing" id="z7f-UG-RHg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lPu-td-LCo"/>
