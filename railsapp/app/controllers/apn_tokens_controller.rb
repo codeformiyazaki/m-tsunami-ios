@@ -72,12 +72,12 @@ class ApnTokensController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apn_token_params
-      params.require(:apn_token).permit(:token, :purpose)
+      params.require(:apn_token).permit(:token, :purpose, :memo)
     end
 
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
-        username == "code4miyazaki" && password == ENV["BASIC_AUTH_PASS"]
+        Rails.env == "development" || (username == "code4miyazaki" && password == ENV["BASIC_AUTH_PASS"])
       end
     end
 end
