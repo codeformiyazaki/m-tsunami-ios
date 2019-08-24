@@ -63,5 +63,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
+    private func params2str(model: String, params: [String:String]) -> String{
+        var vs:[String] = []
+        for (k,v) in params {
+            vs += [model+"["+k+"]="+v]
+        }
+        return vs.joined(separator: "&")
+    }
+
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+        ) {
+        let token = deviceToken.map { data in String(format: "%02.2hhx", data) }.joined()
+        print("Device Token: \(token)")
+
+        let url_staging = "https://desolate-headland-83158.herokuapp.com/apn_tokens.json"
+        let request = NSMutableURLRequest(url: URL(string: url_staging)!)
+        request.httpMethod = "POST"
+        let params:[String:String] = ["token": token, "purpose": "default"]
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = params2str(model: "apn_token", params: params).data(using: .utf8)
+        let task:URLSessionDataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data,response,error) -> Void in
+            print("response:\(String(describing: response))")
+            if let d = data {
+                let resultData = String(data: d, encoding: .utf8) ?? ""
+                print("result:\(resultData)")
+            } else if let e = error {
+                print("error:\(e)")
+            }
+        })
+        task.resume()
+    }
+
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
 }
 
