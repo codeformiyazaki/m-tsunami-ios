@@ -375,18 +375,30 @@
                                     <action selector="githubPushed:" destination="tNz-z9-dJh" eventType="touchUpInside" id="IUL-hh-hBh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pc1-iq-1rk">
+                                <rect key="frame" x="297.33333333333331" y="646" width="96.666666666666686" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OFf-g7-eai" firstAttribute="centerY" secondItem="Hgu-Fr-sUW" secondAttribute="centerY" id="2V1-He-0oB"/>
+                            <constraint firstItem="Pc1-iq-1rk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yg5-kw-fQg" secondAttribute="leading" symbolic="YES" id="HW4-kv-AuX"/>
                             <constraint firstItem="Dar-FA-ZcE" firstAttribute="leading" secondItem="Yg5-kw-fQg" secondAttribute="leading" constant="20" id="MYL-2w-bk9"/>
+                            <constraint firstItem="Yg5-kw-fQg" firstAttribute="bottom" secondItem="Pc1-iq-1rk" secondAttribute="bottom" constant="20" id="ND6-Ku-hat"/>
                             <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="OFf-g7-eai" secondAttribute="trailing" constant="253" id="Nx7-E3-aNM"/>
                             <constraint firstItem="Dar-FA-ZcE" firstAttribute="centerY" secondItem="Hgu-Fr-sUW" secondAttribute="centerY" id="P4e-D2-ZCx"/>
+                            <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" secondItem="Pc1-iq-1rk" secondAttribute="trailing" constant="20" id="cGC-PM-LbT"/>
                             <constraint firstItem="OFf-g7-eai" firstAttribute="leading" secondItem="Dar-FA-ZcE" secondAttribute="trailing" constant="8" id="dSz-s0-Cp1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yg5-kw-fQg"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="square-empty-info" selectedImage="square-empty-info" id="Xmq-WO-nnE"/>
+                    <connections>
+                        <outlet property="versionLabel" destination="Pc1-iq-1rk" id="2rd-Lq-pmW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20I-Le-HhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
