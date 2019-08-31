@@ -27,6 +27,12 @@
 ### development
 ```
 export BASIC_AUTH_PASS=secret
+export APN_CERT=$(cat << EOS
+-----BEGIN PRIVATE KEY-----
+:
+-----END PRIVATE KEY-----
+EOS
+)
 ```
 
 ### staging
@@ -40,6 +46,7 @@ heroku create --remote staging
 git subtree push --prefix railsapp staging master
 git config heroku.remote staging
 heroku config:set BASIC_AUTH_PASS=secret
+# private key for APN is managed by LumberMill's repo now (ad hoc)
 heroku run rake db:migrate
 ```
 - [Heroku - Getting started with ruby](https://devcenter.heroku.com/articles/getting-started-with-ruby)

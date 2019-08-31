@@ -44,6 +44,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    apnotic (1.6.0)
+      connection_pool (~> 2)
+      net-http2 (>= 0.18, < 2)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -73,12 +76,14 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    http-2 (0.10.1)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
@@ -101,6 +106,8 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     msgpack (1.3.1)
+    net-http2 (0.18.2)
+      http-2 (~> 0.10.1)
     nio4r (2.4.0)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
@@ -191,6 +198,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apnotic (~> 1.6)
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
