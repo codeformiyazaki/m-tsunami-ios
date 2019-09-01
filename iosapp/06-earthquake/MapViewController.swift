@@ -39,21 +39,21 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
             let pa = BuildingAnnotation()
+            let lng = Double(row[5]) ?? 0
             let lat = Double(row[6]) ?? 0
-            let lng = Double(row[7]) ?? 0
 
             pa.coordinate = CLLocationCoordinate2DMake(
                 lat,lng)
-            pa.title = row[1]
-            pa.subtitle = "標高" + row[3] + "m " + row[4] + " " + row[5] + "階"
+            pa.title = row[0]
+            pa.subtitle = "標高" + row[2] + "m " + row[3] + " " + row[4] + "階"
             mapView.addAnnotation(pa)
         }
         for line in toilets {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
             let pa = TolietAnnotation()
-            let lat = Double(row[2]) ?? 0
-            let lng = Double(row[3]) ?? 0
+            let lng = Double(row[2]) ?? 0
+            let lat = Double(row[3]) ?? 0
 
             pa.coordinate = CLLocationCoordinate2DMake(
                 lat,lng)
@@ -65,8 +65,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             if line == "" { continue }
             let row = line.components(separatedBy: ",")
             let pa = WebcamAnnotation()
-            let lat = Double(row[2]) ?? 0
-            let lng = Double(row[3]) ?? 0
+            let lng = Double(row[2]) ?? 0
+            let lat = Double(row[3]) ?? 0
 
             pa.coordinate = CLLocationCoordinate2DMake(
                 lat,lng)

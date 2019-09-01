@@ -1,0 +1,76 @@
+{
+  "name": "webcams",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "設置場所": "宮崎市青島ビーチ",
+        "URL": "https://www.ii-nami.com/gt-aoshima"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.466466,
+          31.806427
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "設置場所": "宮崎市一ツ葉",
+        "URL": "https://www.ii-nami.com/gt-hitotsuba"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.476684,
+          31.959524
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "設置場所": "宮崎市こどもの国",
+        "URL": "https://www.ii-nami.com/gt-aoshimahd"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.463251,
+          31.808078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "設置場所": "宮崎市木崎浜 中央",
+        "URL": "https://www.ii-nami.com/gt-kisakihama"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4527,
+          31.828193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "設置場所": "宮崎市木崎浜 加江田",
+        "URL": "https://www.ii-nami.com/gt-kisakihd"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.45403,
+          31.820657
+        ]
+      }
+    }
+  ]
+}

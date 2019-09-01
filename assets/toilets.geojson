@@ -1,0 +1,62 @@
+{
+  "name": "toilets",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市総合体育館",
+        "数": 51
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.435619,
+          31.914892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "佐土原体育館",
+        "数": 13
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.473508,
+          32.025097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "公立大学体育館",
+        "数": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.418067,
+          31.928086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "田野小学校",
+        "数": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.301812,
+          31.837593
+        ]
+      }
+    }
+  ]
+}
