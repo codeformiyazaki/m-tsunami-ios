@@ -1,0 +1,7 @@
+
+desc 'Send files to local env.'
+task :raspi09 do
+  puts `scp motion*.py pi@raspi09.local:`
+end
+
+task :default => :raspi09
