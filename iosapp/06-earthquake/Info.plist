@@ -19,11 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.4</string>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>to show nearby evacuating points.</string>
+	<string>近くの避難所を表示します</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
