@@ -13,7 +13,7 @@ class TolietAnnotation : MKPointAnnotation {}
 class BuildingAnnotation : MKPointAnnotation {}
 class WebcamAnnotation : MKPointAnnotation {}
 
-class MapViewController: UIViewController,MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var buildings = [String]()
     var toilets = [String]()
@@ -29,8 +29,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lm.requestWhenInUseAuthorization()
-        lm.startUpdatingLocation()
+        lm.delegate = self
         buildings = loadCSV(name: "buildings_locations")
         toilets = loadCSV(name: "toilets_locations")
         webcams = loadCSV(name: "webcams_locations")
@@ -73,13 +72,6 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             pa.title = row[0]
             pa.subtitle = "Powered by ii-nami.com"
             mapView.addAnnotation(pa)
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        if needResetRegion {
-            resetRegion()
-            needResetRegion = false
         }
     }
 
@@ -170,6 +162,24 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             // 現在地と目的地が収まるよう縮尺変更
             let rect = new_route.polyline.boundingMapRect.insetBy(dx: -600, dy: -600)
             self.mapView.setRegion(MKCoordinateRegion(rect),animated: true)
+        }
+    }
+
+    // 位置情報取得の許可状況が変わると呼ばれる
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            lm.startUpdatingLocation()
+        default:
+            lm.requestWhenInUseAuthorization()
+        }
+    }
+
+    // 位置情報が変更するたびに呼ばれる
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if needResetRegion {
+            resetRegion()
+            needResetRegion = false
         }
     }
 
