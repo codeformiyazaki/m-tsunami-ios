@@ -22,6 +22,8 @@
 	<string>6</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>近くの避難所を表示します</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>近くの避難所を表示します</string>
 	<key>UIBackgroundModes</key>
