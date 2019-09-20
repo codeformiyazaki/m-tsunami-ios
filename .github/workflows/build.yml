@@ -12,4 +12,4 @@ jobs:
     - name: Show Xcode version
       run: xcodebuild -version
     - name: Build
-      run: xcodebuild -project /iosapp/m-tsunami-ios.xcodeproj -sdk iphonesimulator -configuration Debug build
+      run: xcodebuild -project ./iosapp/m-tsunami-ios.xcodeproj -sdk iphonesimulator -configuration Debug build
