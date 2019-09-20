@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Show Xcode version
       run: xcodebuild -version
-    -name: Change directory
+    - name: Change directory
       run: cd iosapp
     - name: Build
       run: xcodebuild -sdk iphonesimulator -configuration Debug build
