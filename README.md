@@ -1,5 +1,7 @@
 # 宮崎津波防災 iOS
 
+![](https://github.com/codeformiyazaki/m-tsunami-ios/workflows/CI/badge.svg)
+
 宮崎市の津波防災に必要な情報を発信するiOSアプリです。
 メインのマップには以下の情報が表示されています。
 
