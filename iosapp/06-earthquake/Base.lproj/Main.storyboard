@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,7 +73,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="fQR-03-dFi" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="ReB-18-3b2"/>
                             <constraint firstItem="627-9g-Nd8" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="WUs-51-ovJ"/>
@@ -146,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="lRz-nw-yUC" firstAttribute="top" secondItem="LwC-xv-dMe" secondAttribute="bottom" constant="8" id="0WL-vg-zbt"/>
                             <constraint firstItem="jkV-Ie-Yr8" firstAttribute="trailing" secondItem="LwC-xv-dMe" secondAttribute="trailing" constant="16" id="3kj-NP-Gcj"/>
@@ -197,7 +197,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KxN-bd-t8E" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="L4g-fq-XSi"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Uam-Rf-Xgt" secondAttribute="trailing" constant="16" id="Skc-bE-jpR"/>
@@ -242,14 +242,14 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-N5-sfQ">
-                                <rect key="frame" x="10" y="16.666666666666668" width="46" height="30.000000000000004"/>
+                                <rect key="frame" x="10" y="-3.6666666666666679" width="46" height="30.333333333333329"/>
                                 <state key="normal" title="現在地"/>
                                 <connections>
                                     <action selector="didTapCurrentButton:" destination="weR-rN-Xxu" eventType="touchUpInside" id="gnK-4B-e5n"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="bottom" secondItem="lPu-td-LCo" secondAttribute="bottom" id="2Pr-r8-fvF"/>
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="B46-W0-6gW" secondAttribute="trailing" constant="16" id="30Y-dY-GIN"/>
@@ -325,7 +325,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aeb-Ir-WuA" firstAttribute="top" secondItem="AVh-fM-5B9" secondAttribute="top" constant="8" id="9mg-3W-ZgI"/>
                             <constraint firstItem="v6y-wN-JXK" firstAttribute="leading" secondItem="AVh-fM-5B9" secondAttribute="leading" constant="20" id="BsE-L0-M6d"/>
@@ -360,13 +360,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find us on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dar-FA-ZcE">
-                                <rect key="frame" x="20" y="357.66666666666669" width="79" height="21"/>
+                                <rect key="frame" x="20" y="357" width="79" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="OIf-vi-Io1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OFf-g7-eai">
-                                <rect key="frame" x="107" y="351.66666666666669" width="54" height="33"/>
+                                <rect key="frame" x="107" y="357" width="54" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="hhv-nV-xGm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="GitHub"/>
                                 <connections>
@@ -379,17 +385,40 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emY-IY-OYT">
+                                <rect key="frame" x="20" y="387" width="374" height="251"/>
+                                <mutableString key="text">避難ビルや避難所・トイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。災害時にも通行できることを保証するものではありません。
+本アプリケーションは Code for Miyazaki の有志によって作成され、MITライセンスでコードが公開されています。
+防災を考えるきっかけを目指して開発しておりますが、我々だけで全てのデータの正しさを確認することはできません。間違いを発見された場合、GitHubのIssueやPull requestを活用してご報告頂ければ幸いです。
+</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="0yQ-my-wep">
+                                <rect key="frame" x="20" y="20" width="374" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="Qlm-Va-HUt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="emY-IY-OYT" firstAttribute="top" secondItem="Dar-FA-ZcE" secondAttribute="bottom" constant="8" id="0go-ZV-HgM"/>
+                            <constraint firstItem="emY-IY-OYT" firstAttribute="leading" secondItem="Yg5-kw-fQg" secondAttribute="leading" constant="20" id="1EZ-gl-eJl"/>
                             <constraint firstItem="OFf-g7-eai" firstAttribute="centerY" secondItem="Hgu-Fr-sUW" secondAttribute="centerY" id="2V1-He-0oB"/>
                             <constraint firstItem="Pc1-iq-1rk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Yg5-kw-fQg" secondAttribute="leading" symbolic="YES" id="HW4-kv-AuX"/>
+                            <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" secondItem="emY-IY-OYT" secondAttribute="trailing" constant="20" id="JIA-xh-ODz"/>
                             <constraint firstItem="Dar-FA-ZcE" firstAttribute="leading" secondItem="Yg5-kw-fQg" secondAttribute="leading" constant="20" id="MYL-2w-bk9"/>
                             <constraint firstItem="Yg5-kw-fQg" firstAttribute="bottom" secondItem="Pc1-iq-1rk" secondAttribute="bottom" constant="20" id="ND6-Ku-hat"/>
+                            <constraint firstItem="0yQ-my-wep" firstAttribute="leading" secondItem="Yg5-kw-fQg" secondAttribute="leading" constant="20" id="NnI-l2-4Vt"/>
                             <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="OFf-g7-eai" secondAttribute="trailing" constant="253" id="Nx7-E3-aNM"/>
                             <constraint firstItem="Dar-FA-ZcE" firstAttribute="centerY" secondItem="Hgu-Fr-sUW" secondAttribute="centerY" id="P4e-D2-ZCx"/>
+                            <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" secondItem="0yQ-my-wep" secondAttribute="trailing" constant="20" id="Ufu-52-71u"/>
                             <constraint firstItem="Yg5-kw-fQg" firstAttribute="trailing" secondItem="Pc1-iq-1rk" secondAttribute="trailing" constant="20" id="cGC-PM-LbT"/>
                             <constraint firstItem="OFf-g7-eai" firstAttribute="leading" secondItem="Dar-FA-ZcE" secondAttribute="trailing" constant="8" id="dSz-s0-Cp1"/>
+                            <constraint firstItem="Yg5-kw-fQg" firstAttribute="bottom" secondItem="emY-IY-OYT" secondAttribute="bottom" constant="49" id="fHr-4G-wc3"/>
+                            <constraint firstItem="0yQ-my-wep" firstAttribute="top" secondItem="Yg5-kw-fQg" secondAttribute="top" constant="20" id="kNF-kz-p1l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yg5-kw-fQg"/>
                     </view>
@@ -400,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20I-Le-HhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="638" y="1084"/>
+            <point key="canvasLocation" x="637.68115942028987" y="1082.608695652174"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
