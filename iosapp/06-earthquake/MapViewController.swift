@@ -111,13 +111,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var color = UIColor.gray
         if annotation is TolietAnnotation {
             name = "toilet"
-            color = UIColor.cyan
+            color = UIColor.orange
         } else if annotation is WebcamAnnotation {
             name = "webcam"
-            color = UIColor.purple
+            color = UIColor.blue
         } else if annotation is ShelterAnnotation {
             name = "shelter"
-            color = UIColor.cyan
+            color = UIColor.orange
         }
         var av = mapView.dequeueReusableAnnotationView(withIdentifier: name) as? MKMarkerAnnotationView
         if av == nil {
