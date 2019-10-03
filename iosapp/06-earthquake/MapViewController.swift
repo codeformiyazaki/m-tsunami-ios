@@ -178,7 +178,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             self.mapView.addOverlay(new_route.polyline, level: .aboveRoads)
             self.route = new_route
             // 現在地と目的地が収まるよう縮尺変更
-            let rect = new_route.polyline.boundingMapRect.insetBy(dx: -600, dy: -600)
+            let rect = new_route.polyline.boundingMapRect.insetBy(dx: -900, dy: -900)
             self.mapView.setRegion(MKCoordinateRegion(rect),animated: true)
         }
     }
