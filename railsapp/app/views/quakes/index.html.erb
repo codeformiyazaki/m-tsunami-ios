@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Quakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Elapsed</th>
+      <th>P</th>
+      <th>S</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quakes.each do |quake| %>
+      <tr>
+        <td><%= quake.device_id %></td>
+        <td><%= quake.elapsed %></td>
+        <td><%= quake.p %></td>
+        <td><%= quake.s %></td>
+        <td title="Create at: <%= quake.created_at %>"><%= quake.updated_at %></td>
+        <td><%= link_to 'Show', quake %></td>
+        <td><%= link_to 'Edit', edit_quake_path(quake) %></td>
+        <td><%= link_to 'Destroy', quake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>See <code>raspi/motion.py</code> for the way to add quake records.</p>

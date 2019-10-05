@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_082903) do
+ActiveRecord::Schema.define(version: 2019_10_05_064251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2019_08_22_082903) do
     t.string "token"
     t.string "purpose"
     t.string "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quakes", force: :cascade do |t|
+    t.integer "device_id"
+    t.float "elapsed"
+    t.float "p"
+    t.float "s"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

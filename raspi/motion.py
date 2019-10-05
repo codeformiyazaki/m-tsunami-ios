@@ -96,9 +96,8 @@ def main():
                 started_at = None
                 leds.off()
                 if elapsed > RAILS_THRESH:
-                    requests.post(RAILS_WEBHOOK, data = json.dumps({
-                      'elapsed': elapsed , 'p': sp, 's': ss
-                    })))
+                    q = {'quake[elapsed]': elapsed , 'quake[p]': sp, 'quake[s]': ss, 'quake[device_id]': 1}
+                    requests.post(RAILS_WEBHOOK, data = q)
                 if SLACK_WEBHOOK and elapsed > SLACK_THRESH:
                     requests.post(SLACK_WEBHOOK, data = json.dumps({
                       'text': msg ,

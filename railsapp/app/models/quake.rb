@@ -1,0 +1,2 @@
+class Quake < ApplicationRecord
+end

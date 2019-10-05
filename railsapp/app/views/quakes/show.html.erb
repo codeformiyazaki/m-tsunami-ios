@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Device:</strong>
+  <%= @quake.device_id %>
+</p>
+
+<p>
+  <strong>Elapsed:</strong>
+  <%= @quake.elapsed %>
+</p>
+
+<p>
+  <strong>P:</strong>
+  <%= @quake.p %>
+</p>
+
+<p>
+  <strong>S:</strong>
+  <%= @quake.s %>
+</p>
+
+<%= link_to 'Edit', edit_quake_path(@quake) %> |
+<%= link_to 'Back', quakes_path %>
