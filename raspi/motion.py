@@ -8,8 +8,9 @@ from envirophat import motion, leds
 SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK")
 SLACK_THRESH = 30.0
 
-# TODO: implements function to send push notifications to iOS app.
-PUSH_THRESH = 30.0
+# TODO: implements function to send push notifications to railsapp.
+RAILS_WEBHOOK = "https://desolate-headland-83158.herokuapp.com/quakes"
+RAILS_THRESH = 30.0
 
 DETECT_THRESH = 0.01
 DETECT_INTERVAL = 0.01
@@ -94,6 +95,10 @@ def main():
                 print(msg)
                 started_at = None
                 leds.off()
+                if elapsed > RAILS_THRESH:
+                    requests.post(RAILS_WEBHOOK, data = json.dumps({
+                      'elapsed': elapsed , 'p': sp, 's': ss
+                    })))
                 if SLACK_WEBHOOK and elapsed > SLACK_THRESH:
                     requests.post(SLACK_WEBHOOK, data = json.dumps({
                       'text': msg ,
