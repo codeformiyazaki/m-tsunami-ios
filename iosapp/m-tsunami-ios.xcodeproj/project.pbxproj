@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13013EE323457DD900D09F8C /* shelters_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13013EE223457DD900D09F8C /* shelters_locations.csv */; };
 		131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 131385E02286B5DD003E6D62 /* toilets_locations.csv */; };
 		1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1367365622BB99C8004E6E0D /* InfoViewController.swift */; };
 		137330C822B334F800889E6F /* AlertDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137330C722B334F800889E6F /* AlertDetailController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13013EE223457DD900D09F8C /* shelters_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shelters_locations.csv; sourceTree = "<group>"; };
 		131385E02286B5DD003E6D62 /* toilets_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toilets_locations.csv; sourceTree = "<group>"; };
 		131CD1F722E6C85900AC3008 /* 宮崎津波防災.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "宮崎津波防災.entitlements"; sourceTree = "<group>"; };
 		1367365622BB99C8004E6E0D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
@@ -131,8 +133,9 @@
 			isa = PBXGroup;
 			children = (
 				131CD1F722E6C85900AC3008 /* 宮崎津波防災.entitlements */,
-				131385E02286B5DD003E6D62 /* toilets_locations.csv */,
 				139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */,
+				13013EE223457DD900D09F8C /* shelters_locations.csv */,
+				131385E02286B5DD003E6D62 /* toilets_locations.csv */,
 				13C4867C22D0722800536310 /* webcams_locations.csv */,
 				13C4BDA021F47C1A00060742 /* AppDelegate.swift */,
 				13C4BDA221F47C1A00060742 /* AlertsViewController.swift */,
@@ -288,6 +291,7 @@
 				13C4BDAA21F47C1D00060742 /* Assets.xcassets in Resources */,
 				13C4BDA821F47C1A00060742 /* Main.storyboard in Resources */,
 				13C4867D22D0722800536310 /* webcams_locations.csv in Resources */,
+				13013EE323457DD900D09F8C /* shelters_locations.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +499,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -502,6 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
@@ -515,6 +521,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -522,6 +529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;

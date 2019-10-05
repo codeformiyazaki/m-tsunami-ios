@@ -12,12 +12,14 @@ import MapKit
 class TolietAnnotation : MKPointAnnotation {}
 class BuildingAnnotation : MKPointAnnotation {}
 class WebcamAnnotation : MKPointAnnotation {}
+class ShelterAnnotation : MKPointAnnotation {}
 
-class MapViewController: UIViewController,MKMapViewDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var buildings = [String]()
     var toilets = [String]()
     var webcams = [String]()
+    var shelters = [String]()
 
     let lm = CLLocationManager()
     var route:MKRoute?
@@ -29,11 +31,11 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        lm.requestWhenInUseAuthorization()
-        lm.startUpdatingLocation()
+        lm.delegate = self
         buildings = loadCSV(name: "buildings_locations")
         toilets = loadCSV(name: "toilets_locations")
         webcams = loadCSV(name: "webcams_locations")
+        shelters = loadCSV(name: "shelters_locations")
 
         for line in buildings {
             if line == "" { continue }
@@ -74,12 +76,17 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             pa.subtitle = "Powered by ii-nami.com"
             mapView.addAnnotation(pa)
         }
-    }
+        for line in shelters {
+            if line == "" { continue }
+            let row = line.components(separatedBy: ",")
+            let pa = ShelterAnnotation()
+            let lng = Double(row[2]) ?? 0
+            let lat = Double(row[3]) ?? 0
 
-    override func viewDidAppear(_ animated: Bool) {
-        if needResetRegion {
-            resetRegion()
-            needResetRegion = false
+            pa.coordinate = CLLocationCoordinate2DMake(
+                lat,lng)
+            pa.title = row[0]
+            mapView.addAnnotation(pa)
         }
     }
 
@@ -104,10 +111,13 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         var color = UIColor.gray
         if annotation is TolietAnnotation {
             name = "toilet"
-            color = UIColor.brown
+            color = UIColor.orange
         } else if annotation is WebcamAnnotation {
             name = "webcam"
             color = UIColor.blue
+        } else if annotation is ShelterAnnotation {
+            name = "shelter"
+            color = UIColor.orange
         }
         var av = mapView.dequeueReusableAnnotationView(withIdentifier: name) as? MKMarkerAnnotationView
         if av == nil {
@@ -168,8 +178,26 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             self.mapView.addOverlay(new_route.polyline, level: .aboveRoads)
             self.route = new_route
             // 現在地と目的地が収まるよう縮尺変更
-            let rect = new_route.polyline.boundingMapRect.insetBy(dx: -600, dy: -600)
+            let rect = new_route.polyline.boundingMapRect.insetBy(dx: -900, dy: -900)
             self.mapView.setRegion(MKCoordinateRegion(rect),animated: true)
+        }
+    }
+
+    // 位置情報取得の許可状況が変わると呼ばれる
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .authorizedWhenInUse:
+            lm.startUpdatingLocation()
+        default:
+            lm.requestWhenInUseAuthorization()
+        }
+    }
+
+    // 位置情報が変更するたびに呼ばれる
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if needResetRegion {
+            resetRegion()
+            needResetRegion = false
         }
     }
 

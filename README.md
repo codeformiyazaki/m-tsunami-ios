@@ -1,15 +1,18 @@
 # 宮崎津波防災 iOS
 
-宮崎市の津波防災に必要な情報を発信するiOSアプリです。
+![](https://github.com/codeformiyazaki/m-tsunami-ios/workflows/CI/badge.svg)
+
+宮崎市の津波防災に必要な情報を発信する[iOSアプリ](https://apps.apple.com/us/app/%E5%AE%AE%E5%B4%8E%E6%B4%A5%E6%B3%A2%E9%98%B2%E7%81%BD/id1462576599?ls=1)です。
 メインのマップには以下の情報が表示されています。
 
 - 津波避難ビル
 - 災害時に稼働するマンホールトイレ
-- 海岸線を監視するウェブカメラ
+- []海岸線を監視するウェブカメラ](https://www.ii-nami.com/)
+- [指定避難所](https://www.geospatial.jp/ckan/dataset/hinanbasho/resource/b2b56005-9c68-432c-8fa8-6cb312459a08)
 
-避難ビルやトイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。
+避難ビルや避難所・トイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。
 災害時にも通行できることを保証するものではありません。
-本アプリケーションは Code for Miyazaki の有志によって作成され、MITライセンスで公開されています。
+本アプリケーションは Code for Miyazaki の有志によって作成され、MITライセンスでコードが公開されています。
 防災を考えるきっかけを目指して開発しておりますが、我々だけで全てのデータの正しさを確認することはできません。
 間違いを発見された場合、GitHubのIssueやPull requestを活用してご報告頂ければ幸いです。
 
@@ -28,6 +31,7 @@
 - https://www.glyphicons.com/
 - http://icooon-mono.com/
 - https://material.io/resources/icons/?style=baseline
+- [G空間情報センター](https://www.geospatial.jp/gp_front/)
 
 ### 経度緯度(lng,lat)の調べ方
 
