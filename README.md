@@ -71,3 +71,17 @@ heroku config:set BASIC_AUTH_PASS=secret
 heroku run rake db:migrate
 ```
 - [Heroku - Getting started with ruby](https://devcenter.heroku.com/articles/getting-started-with-ruby)
+
+### production
+https://m-tsunami.herokuapp.com/
+
+```
+heroku create m-tsunami --remote production
+# key’s are managed in LM’s repo (ad hoc)
+heroku config --app m-tsunami
+heroku run rake db:migrate --app m-tsunami
+```
+
+```
+git subtree push --prefix railsapp production master
+```

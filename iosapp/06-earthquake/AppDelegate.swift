@@ -77,20 +77,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
         ) {
         let token = deviceToken.map { data in String(format: "%02.2hhx", data) }.joined()
-        print("Device Token: \(token)")
+        UserDefaults.standard.set(token, forKey: "apn")
 
-        let url_staging = "https://desolate-headland-83158.herokuapp.com/apn_tokens.json"
+        let url_staging = "https://m-tsunami.herokuapp.com/apn_tokens.json"
         let request = NSMutableURLRequest(url: URL(string: url_staging)!)
         request.httpMethod = "POST"
         let params:[String:String] = ["token": token, "purpose": "default"]
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = params2str(model: "apn_token", params: params).data(using: .utf8)
         let task:URLSessionDataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {(data,response,error) -> Void in
-            print("response:\(String(describing: response))")
-            if let d = data {
-                let resultData = String(data: d, encoding: .utf8) ?? ""
-                print("result:\(resultData)")
-            } else if let e = error {
+            // print("response:\(String(describing: response))")
+            // if let d = data {
+            // let resultData = String(data: d, encoding: .utf8) ?? ""
+            // print("result:\(resultData)")
+            if let e = error {
                 print("error:\(e)")
             }
         })

@@ -9,7 +9,7 @@ SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK")
 SLACK_THRESH = 30.0
 
 # TODO: implements function to send push notifications to railsapp.
-RAILS_WEBHOOK = "https://desolate-headland-83158.herokuapp.com/quakes"
+RAILS_WEBHOOK = "https://m-tsunami.herokuapp.com/quakes"
 RAILS_THRESH = 30.0
 
 DETECT_THRESH = 0.01

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/ShuntaroMiwa/m-tsunami-ios/iosapp/06-earthquake/buildings_locations.csv">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

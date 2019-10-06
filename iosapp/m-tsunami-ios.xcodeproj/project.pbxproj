@@ -499,7 +499,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -507,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
@@ -521,7 +521,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -529,7 +529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				SWIFT_VERSION = 5.0;
