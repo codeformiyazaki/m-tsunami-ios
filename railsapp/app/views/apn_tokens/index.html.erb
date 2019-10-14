@@ -30,7 +30,8 @@
 
 <br>
 
-<%= link_to 'New Apn Token', new_apn_token_path %>
-
-<pre>rails runner lib/tasks/notifier.rb (-t token or -p purpose) -m message [--exec]"
-</pre>
+<form method="get" action="/test-notify">
+  <input type="text" value="test from m" size="60"/>
+  <input type="submit" value="Test push notification" /><br/>
+  <small>Message will be sent to tokens which purpose is 'test'.</small>
+</form>

@@ -64,6 +64,19 @@ class ApnTokensController < ApplicationController
     end
   end
 
+  def test_notify
+    @message = params[:message] || "test from m-tsunami railsapp"
+    require './lib/tasks/notifier.rb'
+    n = Notifier.new
+    n.dry_run = false
+    @tokens = ApnToken.where("purpose = 'test'")
+    begin
+      n.push(@tokens,@message)
+    rescue => e
+      @error = e.message
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_apn_token
