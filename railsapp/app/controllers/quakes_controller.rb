@@ -32,6 +32,7 @@ class QuakesController < ApplicationController
       if @quake.save
         format.html { redirect_to @quake, notice: 'Quake was successfully created.' }
         format.json { render :show, status: :created, location: @quake }
+        send_notify if Quake.happen?
       else
         format.html { render :new }
         format.json { render json: @quake.errors, status: :unprocessable_entity }
@@ -63,7 +64,25 @@ class QuakesController < ApplicationController
     end
   end
 
+  def test_quake
+    # TODO 最終的には実際の地震を起こした感じでテストしたい
+    begin
+      send_notify("test")
+    rescue => e
+      @error = e.message
+    end
+  end
+
   private
+    def send_notify(purpose="default")
+      require './lib/tasks/notifier.rb'
+      n = Notifier.new
+      n.dry_run = false
+      @tokens = ApnToken.where("purpose = '#{purpose}'")
+      message = "地震発生を検知しました！"
+      n.push(@tokens,message)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_quake
       @quake = Quake.find(params[:id])
