@@ -6,7 +6,7 @@ class ApnTokensController < ApplicationController
   # GET /apn_tokens
   # GET /apn_tokens.json
   def index
-    @apn_tokens = ApnToken.all
+    @apn_tokens = ApnToken.all.order("created_at desc")
   end
 
   # GET /apn_tokens/1

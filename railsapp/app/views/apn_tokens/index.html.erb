@@ -19,7 +19,7 @@
         <td><%= apn_token.token %></td>
         <td><%= apn_token.purpose %></td>
         <td><%= apn_token.memo %></td>
-        <td><%= apn_token.updated_at %></td>
+        <td><%= apn_token.updated_at.in_time_zone("Tokyo") %></td>
         <td><%= link_to 'Show', apn_token %></td>
         <td><%= link_to 'Edit', edit_apn_token_path(apn_token) %></td>
         <td><%= link_to 'Destroy', apn_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
