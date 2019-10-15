@@ -18,10 +18,10 @@
     <% @quakes.each do |quake| %>
       <tr>
         <td><%= quake.device_id %></td>
-        <td><%= quake.elapsed %></td>
-        <td><%= quake.p %></td>
-        <td><%= quake.s %></td>
-        <td title="Create at: <%= quake.created_at %>"><%= quake.updated_at %></td>
+        <td><%= "%.1f" % quake.elapsed %></td>
+        <td><%= "%.2f" % quake.p %></td>
+        <td><%= "%.2f" % quake.s %></td>
+        <td title="Create at: <%= quake.created_at.in_time_zone("Tokyo") %>"><%= quake.updated_at.in_time_zone("Tokyo") %></td>
         <td><%= link_to 'Show', quake %></td>
         <td><%= link_to 'Edit', edit_quake_path(quake) %></td>
         <td><%= link_to 'Destroy', quake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
