@@ -28,10 +28,13 @@
 - [OpenHinata](https://kenzkenz.xsrv.jp/aaa)
 - [気象庁防災情報XMLフォーマット形式電文の公開](http://xml.kishou.go.jp/xmlpull.html)
 - [国土数値情報ダウンロードサービス](http://nlftp.mlit.go.jp/ksj/)
-- https://www.glyphicons.com/
-- http://icooon-mono.com/
-- https://material.io/resources/icons/?style=baseline
 - [G空間情報センター](https://www.geospatial.jp/gp_front/)
+- アイコン素材など
+  - https://www.glyphicons.com/
+  - http://icooon-mono.com/
+  - https://material.io/resources/icons/?style=baseline
+- ライブラリ
+  - [Apnotic A Ruby APNs HTTP/2 gem](https://github.com/ostinelli/apnotic)
 
 ### 経度緯度(lng,lat)の調べ方
 

@@ -6,6 +6,11 @@ class Notifier
   attr_accessor :dry_run
   def initialize
     @dry_run = true
+    if Rails.env == "development"
+      @target = "development"
+    else
+      @target = "new"
+    end
   end
 
   def push(tokens,message)
@@ -13,13 +18,13 @@ class Notifier
     apn_cert_string = ENV["APN_CERT"]
     raise "APN_CERT is not set." unless apn_cert_string
     print "[dry-run]" if @dry_run
-    puts "Notification is going to be sent to #{tokens.count} devices. message: #{message}"
-    connection = Apnotic::Connection.development(
+    puts "Notification is going to be sent to #{tokens.count} devices. message: #{message} endpoint; #{@target}"
+    params = {
       auth_method: :token,
       cert_path: StringIO.new(apn_cert_string),
       key_id: "P9L3783LP4",
-      team_id: "NU78774256"
-    )
+      team_id: "NU78774256"}
+    connection = Apnotic::Connection.send(@target,params) # endpoint varies based on env.
     tokens.each do |t|
       notification       = Apnotic::Notification.new(t.token)
       notification.topic = "net.lmlab.m-tsunami"
