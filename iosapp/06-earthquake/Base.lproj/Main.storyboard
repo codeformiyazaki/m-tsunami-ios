@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -242,10 +242,17 @@
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-N5-sfQ">
-                                <rect key="frame" x="10" y="-3.6666666666666679" width="46" height="30.333333333333329"/>
+                                <rect key="frame" x="10" y="-3.6666666666666661" width="46" height="30.333333333333329"/>
                                 <state key="normal" title="現在地"/>
                                 <connections>
                                     <action selector="didTapCurrentButton:" destination="weR-rN-Xxu" eventType="touchUpInside" id="gnK-4B-e5n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-yG-px1">
+                                <rect key="frame" x="296" y="-3.6666666666666661" width="108" height="30.333333333333329"/>
+                                <state key="normal" title="アイコンの説明"/>
+                                <connections>
+                                    <segue destination="v19-a3-j0z" kind="show" id="QHy-51-far"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -255,11 +262,14 @@
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="B46-W0-6gW" secondAttribute="trailing" constant="16" id="30Y-dY-GIN"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="top" secondItem="lPu-td-LCo" secondAttribute="top" id="4Hr-Md-F34"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" constant="16" id="8lj-mQ-0w9"/>
+                            <constraint firstItem="Onv-yG-px1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1ky-N5-sfQ" secondAttribute="trailing" constant="8" symbolic="YES" id="AH9-yU-qGC"/>
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1ky-N5-sfQ" secondAttribute="trailing" symbolic="YES" id="K4E-qI-X8Z"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="top" secondItem="B46-W0-6gW" secondAttribute="bottom" constant="8" id="e3w-15-faZ"/>
                             <constraint firstItem="1ky-N5-sfQ" firstAttribute="centerY" secondItem="B46-W0-6gW" secondAttribute="centerY" id="m1W-D6-FA9"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" id="pNw-z9-8Nv"/>
+                            <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="Onv-yG-px1" secondAttribute="trailing" constant="10" id="qMZ-Me-4WV"/>
                             <constraint firstItem="1ky-N5-sfQ" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" constant="10" id="uHT-1V-CKY"/>
+                            <constraint firstItem="Onv-yG-px1" firstAttribute="centerY" secondItem="B46-W0-6gW" secondAttribute="centerY" id="wnl-d4-TU9"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="trailing" secondItem="lPu-td-LCo" secondAttribute="trailing" id="z7f-UG-RHg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lPu-td-LCo"/>
@@ -273,6 +283,132 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZB-J8-oz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1468" y="257.72113943028489"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="dpg-t1-3jA">
+            <objects>
+                <tableViewController id="v19-a3-j0z" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WtW-jK-iVp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="S7h-Ii-trI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの説明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
+                                    <rect key="frame" x="146" y="11.666666666666664" width="122" height="21"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="8m2-wG-0UC" firstAttribute="centerY" secondItem="S7h-Ii-trI" secondAttribute="centerY" id="Tfm-Qo-bMa"/>
+                                <constraint firstItem="8m2-wG-0UC" firstAttribute="centerX" secondItem="S7h-Ii-trI" secondAttribute="centerX" id="p52-eT-8nq"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="BDB-FF-0cM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="FuT-gB-MFs" imageView="EaD-ba-i2d" style="IBUITableViewCellStyleDefault" id="MYN-2m-CxC">
+                                        <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MYN-2m-CxC" id="wZ9-dW-z1m">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="津波避難ビル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FuT-gB-MFs">
+                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="building" id="EaD-ba-i2d">
+                                                    <rect key="frame" x="20" y="5.6666666666666679" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="zqg-c1-8MJ" imageView="NgW-nI-8GN" style="IBUITableViewCellStyleDefault" id="uBW-2J-tG7">
+                                        <rect key="frame" x="0.0" y="115.66666793823242" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uBW-2J-tG7" id="7U3-es-rIg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="災害時に稼働するマンホールトイレ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zqg-c1-8MJ">
+                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="toilet" id="NgW-nI-8GN">
+                                                    <rect key="frame" x="20" y="5.6666666666666679" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="sJj-Me-OGM" imageView="Djl-SV-icE" style="IBUITableViewCellStyleDefault" id="M3H-eb-hSs">
+                                        <rect key="frame" x="0.0" y="159.33333587646484" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3H-eb-hSs" id="cvV-cm-R0J">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="海岸線を監視するウェブカメラ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sJj-Me-OGM">
+                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="webcam" id="Djl-SV-icE">
+                                                    <rect key="frame" x="20" y="5.6666666666666679" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="fH6-oQ-WxX" imageView="LLm-IW-D6c" style="IBUITableViewCellStyleDefault" id="7ay-xg-Ehr">
+                                        <rect key="frame" x="0.0" y="203.00000381469727" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ay-xg-Ehr" id="YVe-wD-3yq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="指定避難所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fH6-oQ-WxX">
+                                                    <rect key="frame" x="79" y="0.0" width="315" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="shelter" id="LLm-IW-D6c">
+                                                    <rect key="frame" x="20" y="0.0" width="44" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="v19-a3-j0z" id="rhd-k8-PAw"/>
+                            <outlet property="delegate" destination="v19-a3-j0z" id="1xX-tz-Nfz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="IvB-UU-r39"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vtp-3B-7lJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2416" y="584"/>
         </scene>
         <!--Iinami View Controller-->
         <scene sceneID="sk3-8r-B6Y">
@@ -349,7 +485,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="itb-e5-plh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2379.7101449275365" y="257.60869565217394"/>
+            <point key="canvasLocation" x="2416" y="-158"/>
         </scene>
         <!--Info-->
         <scene sceneID="ge1-2X-Yfy">
@@ -387,10 +523,10 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emY-IY-OYT">
                                 <rect key="frame" x="20" y="387" width="374" height="251"/>
-                                <mutableString key="text">避難ビルや避難所・トイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。災害時にも通行できることを保証するものではありません。
+                                <string key="text">避難ビルや避難所・トイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。災害時にも通行できることを保証するものではありません。
 本アプリケーションは Code for Miyazaki の有志によって作成され、MITライセンスでコードが公開されています。
 防災を考えるきっかけを目指して開発しておりますが、我々だけで全てのデータの正しさを確認することはできません。間違いを発見された場合、GitHubのIssueやPull requestを活用してご報告頂ければ幸いです。
-</mutableString>
+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -454,10 +590,14 @@
     </scenes>
     <resources>
         <image name="banner" width="992" height="402"/>
+        <image name="building" width="32" height="32"/>
         <image name="earthquake" width="256" height="256"/>
         <image name="light-beacon" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="nearby-alt" width="32" height="32"/>
+        <image name="shelter" width="128" height="128"/>
         <image name="square-empty-info" width="32" height="32"/>
+        <image name="toilet" width="32" height="32"/>
+        <image name="webcam" width="32" height="32"/>
     </resources>
 </document>
