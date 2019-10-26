@@ -250,7 +250,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-yG-px1">
                                 <rect key="frame" x="296" y="-3.6666666666666661" width="108" height="30.333333333333329"/>
-                                <state key="normal" title="アイコンの説明"/>
+                                <state key="normal" title="アイコンの設定"/>
                                 <connections>
                                     <segue destination="v19-a3-j0z" kind="show" id="QHy-51-far"/>
                                 </connections>
@@ -284,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="1468" y="257.72113943028489"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Icon Settings View Controller-->
         <scene sceneID="dpg-t1-3jA">
             <objects>
-                <tableViewController id="v19-a3-j0z" sceneMemberID="viewController">
+                <tableViewController id="v19-a3-j0z" customClass="IconSettingsViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WtW-jK-iVp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの説明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
                                     <rect key="frame" x="146" y="11.666666666666664" width="122" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -309,18 +309,35 @@
                                 <constraint firstItem="8m2-wG-0UC" firstAttribute="centerX" secondItem="S7h-Ii-trI" secondAttribute="centerX" id="p52-eT-8nq"/>
                             </constraints>
                         </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="lcf-MJ-1fz">
+                            <rect key="frame" x="0.0" y="274.66667175292969" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チェックを入れたアイコンが地図上に表示されます" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftT-ng-Wag">
+                                    <rect key="frame" x="31" y="13" width="352" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="ftT-ng-Wag" firstAttribute="centerY" secondItem="lcf-MJ-1fz" secondAttribute="centerY" id="AEi-Pa-Fed"/>
+                                <constraint firstItem="ftT-ng-Wag" firstAttribute="centerX" secondItem="lcf-MJ-1fz" secondAttribute="centerX" id="xuY-ss-buF"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="BDB-FF-0cM">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="FuT-gB-MFs" imageView="EaD-ba-i2d" style="IBUITableViewCellStyleDefault" id="MYN-2m-CxC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="FuT-gB-MFs" imageView="EaD-ba-i2d" style="IBUITableViewCellStyleDefault" id="MYN-2m-CxC">
                                         <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MYN-2m-CxC" id="wZ9-dW-z1m">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="津波避難ビル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FuT-gB-MFs">
-                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <rect key="frame" x="67" y="0.0" width="295" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -333,15 +350,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="zqg-c1-8MJ" imageView="NgW-nI-8GN" style="IBUITableViewCellStyleDefault" id="uBW-2J-tG7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="zqg-c1-8MJ" imageView="NgW-nI-8GN" style="IBUITableViewCellStyleDefault" id="uBW-2J-tG7">
                                         <rect key="frame" x="0.0" y="115.66666793823242" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uBW-2J-tG7" id="7U3-es-rIg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="災害時に稼働するマンホールトイレ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zqg-c1-8MJ">
-                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <rect key="frame" x="67" y="0.0" width="295" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -354,15 +371,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="sJj-Me-OGM" imageView="Djl-SV-icE" style="IBUITableViewCellStyleDefault" id="M3H-eb-hSs">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="sJj-Me-OGM" imageView="Djl-SV-icE" style="IBUITableViewCellStyleDefault" id="M3H-eb-hSs">
                                         <rect key="frame" x="0.0" y="159.33333587646484" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3H-eb-hSs" id="cvV-cm-R0J">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="海岸線を監視するウェブカメラ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sJj-Me-OGM">
-                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
+                                                    <rect key="frame" x="67" y="0.0" width="295" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
@@ -375,22 +392,22 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="fH6-oQ-WxX" imageView="LLm-IW-D6c" style="IBUITableViewCellStyleDefault" id="7ay-xg-Ehr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" textLabel="fH6-oQ-WxX" imageView="LLm-IW-D6c" style="IBUITableViewCellStyleDefault" id="7ay-xg-Ehr">
                                         <rect key="frame" x="0.0" y="203.00000381469727" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7ay-xg-Ehr" id="YVe-wD-3yq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="指定避難所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fH6-oQ-WxX">
-                                                    <rect key="frame" x="79" y="0.0" width="315" height="43.666667938232422"/>
+                                                    <rect key="frame" x="67" y="0.0" width="295" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="shelter" id="LLm-IW-D6c">
-                                                    <rect key="frame" x="20" y="0.0" width="44" height="43.666666666666664"/>
+                                                    <rect key="frame" x="20" y="5.6666666666666679" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -595,7 +612,7 @@
         <image name="light-beacon" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="nearby-alt" width="32" height="32"/>
-        <image name="shelter" width="128" height="128"/>
+        <image name="shelter" width="32" height="32"/>
         <image name="square-empty-info" width="32" height="32"/>
         <image name="toilet" width="32" height="32"/>
         <image name="webcam" width="32" height="32"/>
