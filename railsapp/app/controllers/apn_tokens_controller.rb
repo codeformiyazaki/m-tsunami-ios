@@ -6,7 +6,7 @@ class ApnTokensController < ApplicationController
   # GET /apn_tokens
   # GET /apn_tokens.json
   def index
-    @apn_tokens = ApnToken.all
+    @apn_tokens = ApnToken.all.order("created_at desc")
   end
 
   # GET /apn_tokens/1
@@ -64,6 +64,19 @@ class ApnTokensController < ApplicationController
     end
   end
 
+  def test_notify
+    @message = params[:message] || "test from m-tsunami railsapp"
+    require './lib/tasks/notifier.rb'
+    n = Notifier.new
+    n.dry_run = false
+    @tokens = ApnToken.where("purpose = 'test'")
+    begin
+      n.push(@tokens,@message)
+    rescue => e
+      @error = e.message
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_apn_token
@@ -73,11 +86,5 @@ class ApnTokensController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def apn_token_params
       params.require(:apn_token).permit(:token, :purpose, :memo)
-    end
-
-    def authenticate
-      authenticate_or_request_with_http_basic do |username, password|
-        Rails.env == "development" || (username == "code4miyazaki" && password == ENV["BASIC_AUTH_PASS"])
-      end
     end
 end

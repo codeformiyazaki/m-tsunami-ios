@@ -1,0 +1,10 @@
+<% if @error %>
+<p style="color: red"><%= @error %></p>
+<% else %>
+<p>Message was sent to tokens which purpose is 'test'.</p>
+<% end %>
+<p>
+  message: <%= @message %><br/>
+  number of tokens: <%= @tokens.length %>
+</p>
+<p><%= link_to 'Back to tokens', apn_tokens_path %></p>

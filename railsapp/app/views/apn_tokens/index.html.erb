@@ -19,7 +19,7 @@
         <td><%= apn_token.token %></td>
         <td><%= apn_token.purpose %></td>
         <td><%= apn_token.memo %></td>
-        <td><%= apn_token.updated_at %></td>
+        <td><%= apn_token.updated_at.in_time_zone("Tokyo") %></td>
         <td><%= link_to 'Show', apn_token %></td>
         <td><%= link_to 'Edit', edit_apn_token_path(apn_token) %></td>
         <td><%= link_to 'Destroy', apn_token, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,7 +30,10 @@
 
 <br>
 
-<%= link_to 'New Apn Token', new_apn_token_path %>
+<form method="get" action="/test-notify">
+  <input type="text" name="message" value="test from m" size="60"/>
+  <input type="submit" value="Test push notification" /><br/>
+  <small>Message will be sent to tokens which purpose is 'test'.</small>
+</form>
 
-<pre>rails runner lib/tasks/notifier.rb (-t token or -p purpose) -m message [--exec]"
-</pre>
+<p><%= link_to 'Test quake', test_quake_path %></p>

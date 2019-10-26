@@ -1,0 +1,18 @@
+
+
+def exec(cmd)
+  puts "\e[32m"+cmd+"\e[m"
+  puts `#{cmd}`
+end
+
+desc 'Send files to raspberrypi.local.'
+task :deploy do
+  exec("scp motion*.py pi@raspberrypi.local:")
+end
+
+desc 'Send files to local env.'
+task :raspi09 do
+  exec("scp motion*.py pi@raspi09.local:")
+end
+
+task :default => :deploy
