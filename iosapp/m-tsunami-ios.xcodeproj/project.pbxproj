@@ -500,7 +500,7 @@
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -508,7 +508,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -524,7 +524,7 @@
 				CODE_SIGN_ENTITLEMENTS = "06-earthquake/宮崎津波防災.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = NU78774256;
 				INFOPLIST_FILE = "06-earthquake/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -532,7 +532,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
 				PRODUCT_NAME = "宮崎津波防災";
 				PROVISIONING_PROFILE_SPECIFIER = "";
