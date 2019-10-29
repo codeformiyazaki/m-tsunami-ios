@@ -31,6 +31,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 設定のデフォルト値をセット
+        UserDefaults.standard.register(defaults: ["buildings" : true,
+                                                  "toilets" : true,
+                                                  "webcams" : true,
+                                                  "shelters" : true])
+
         lm.delegate = self
         buildings = loadCSV(name: "buildings_locations")
         toilets = loadCSV(name: "toilets_locations")
