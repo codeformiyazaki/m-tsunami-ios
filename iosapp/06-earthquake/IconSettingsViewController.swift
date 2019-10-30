@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol IconSettingsViewControllerDelegate: class {
+    func iconSettingsViewControllerDidClose()
+}
+
 class IconSettingsViewController: UITableViewController {
 
     enum IconSetting: Int, CaseIterable {
@@ -16,6 +20,8 @@ class IconSettingsViewController: UITableViewController {
         case webcams
         case shelters
     }
+
+    weak var delegate: IconSettingsViewControllerDelegate?
 
     private lazy var iconSettingsRepository: IconSettingsRepository = IconSettingsRepositoryImpl()
 
@@ -26,6 +32,11 @@ class IconSettingsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         load()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        delegate?.iconSettingsViewControllerDidClose()
     }
 
     private func load() {
