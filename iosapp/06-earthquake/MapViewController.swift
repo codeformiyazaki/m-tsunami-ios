@@ -61,6 +61,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     private func clearData() {
         mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
     }
 
     private func loadData() {
@@ -99,7 +100,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 mapView.addAnnotation(pa)
             }
         }
-        
+
         // ウェブカメラ
         if iconSettingsRepository.fetch(key: "webcams") {
             webcams = loadCSV(name: "webcams_locations")
