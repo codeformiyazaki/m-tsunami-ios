@@ -5,56 +5,392 @@
     {
       "type": "Feature",
       "properties": {
+        "施設名": "宮崎市立宮崎東中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4286822,
+          31.9307124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎公立大学（体育館）",
+        "数": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4180978,
+          31.9293026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立小戸小学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.414525,
+          31.9174456
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立大宮中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4189429,
+          31.9422685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立東大宮小学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4355215,
+          31.9433175
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "施設名": "宮崎市総合体育館",
         "数": 51
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.435619,
-          31.914892
+          131.4353061,
+          31.9145884
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "施設名": "佐土原体育館",
+        "施設名": "宮崎市立宮崎中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4338016,
+          31.9073995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立檍中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4442606,
+          31.9260008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立大淀中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4143117,
+          31.9014872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立大塚中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3894751,
+          31.9198899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立宮崎西小学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3843705,
+          31.9149462
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立生目台中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3799087,
+          31.9040889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立小松台小学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3938155,
+          31.9329522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立赤江小学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4300276,
+          31.8883533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立恒久小学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4265987,
+          31.8952106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立赤江東中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4327231,
+          31.8889187
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立赤江中学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4199754,
+          31.8808916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立木花中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4274172,
+          31.8312888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立青島中学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4691735,
+          31.7865525
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立住吉中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.4494244,
+          31.9888954
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立生目中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3812118,
+          31.9314419
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立宮崎北中学校",
+        "数": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.377204,
+          31.9625159
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市佐土原体育館",
         "数": 13
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.473508,
-          32.025097
+          131.4731947,
+          32.0248477
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "施設名": "公立大学体育館",
-        "数": 10
+        "施設名": "宮崎市立広瀬中学校",
+        "数": 7
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.418067,
-          31.928086
+          131.4750421,
+          32.0175556
         ]
       }
     },
     {
       "type": "Feature",
       "properties": {
-        "施設名": "田野小学校",
+        "施設名": "宮崎市立田野小学校",
         "数": 4
       },
       "geometry": {
         "type": "Point",
         "coordinates": [
-          131.301812,
-          31.837593
+          131.3017061,
+          31.8373488
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市高岡総合支所庁舎",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.2971542,
+          31.9567744
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立高岡中学校",
+        "数": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.2998962,
+          31.962206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "施設名": "宮崎市立加納小学校",
+        "数": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          131.3904146,
+          31.86916089999999
         ]
       }
     }
