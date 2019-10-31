@@ -25,6 +25,8 @@
 		13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C4BDAB21F47C1D00060742 /* LaunchScreen.storyboard */; };
 		13C4BDB821F47C1E00060742 /* _6_earthquakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDB721F47C1E00060742 /* _6_earthquakeTests.swift */; };
 		13C4BDC321F47C1E00060742 /* _6_earthquakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */; };
+		216A345C2364A06100F3C19E /* IconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A345B2364A06100F3C19E /* IconSettingsViewController.swift */; };
+		21F86B2F23689EFB00BBEAF4 /* IconSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		13C4BDBE21F47C1E00060742 /* 06-earthquakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "06-earthquakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_earthquakeUITests.swift; sourceTree = "<group>"; };
 		13C4BDC421F47C1E00060742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		216A345B2364A06100F3C19E /* IconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsViewController.swift; sourceTree = "<group>"; };
+		21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,8 @@
 				13C4BDAE21F47C1D00060742 /* Info.plist */,
 				1367365622BB99C8004E6E0D /* InfoViewController.swift */,
 				13C4867E22D07B0500536310 /* IinamiViewController.swift */,
+				216A345B2364A06100F3C19E /* IconSettingsViewController.swift */,
+				21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */,
 			);
 			path = "06-earthquake";
 			sourceTree = "<group>";
@@ -316,11 +322,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				216A345C2364A06100F3C19E /* IconSettingsViewController.swift in Sources */,
 				137330C822B334F800889E6F /* AlertDetailController.swift in Sources */,
 				13C4BDA521F47C1A00060742 /* HinataViewController.swift in Sources */,
 				13C4BDA121F47C1A00060742 /* AppDelegate.swift in Sources */,
 				13C4BDA321F47C1A00060742 /* AlertsViewController.swift in Sources */,
 				1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */,
+				21F86B2F23689EFB00BBEAF4 /* IconSettingsRepository.swift in Sources */,
 				13BC4FCA22589B35003C240D /* MapViewController.swift in Sources */,
 				13C4867F22D07B0500536310 /* IinamiViewController.swift in Sources */,
 			);

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
@@ -250,7 +250,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-yG-px1">
                                 <rect key="frame" x="296" y="-3.6666666666666661" width="108" height="30.333333333333329"/>
-                                <state key="normal" title="アイコンの説明"/>
+                                <state key="normal" title="アイコンの設定"/>
                                 <connections>
                                     <segue destination="v19-a3-j0z" kind="show" id="QHy-51-far"/>
                                 </connections>
@@ -284,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="1468" y="257.72113943028489"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Icon Settings View Controller-->
         <scene sceneID="dpg-t1-3jA">
             <objects>
-                <tableViewController id="v19-a3-j0z" sceneMemberID="viewController">
+                <tableViewController id="v19-a3-j0z" customClass="IconSettingsViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WtW-jK-iVp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,7 +296,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの説明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
                                     <rect key="frame" x="146" y="11.666666666666664" width="122" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -307,6 +307,23 @@
                             <constraints>
                                 <constraint firstItem="8m2-wG-0UC" firstAttribute="centerY" secondItem="S7h-Ii-trI" secondAttribute="centerY" id="Tfm-Qo-bMa"/>
                                 <constraint firstItem="8m2-wG-0UC" firstAttribute="centerX" secondItem="S7h-Ii-trI" secondAttribute="centerX" id="p52-eT-8nq"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="lcf-MJ-1fz">
+                            <rect key="frame" x="0.0" y="274.66667175292969" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チェックを入れたアイコンが地図上に表示されます" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftT-ng-Wag">
+                                    <rect key="frame" x="31" y="13" width="352" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="ftT-ng-Wag" firstAttribute="centerY" secondItem="lcf-MJ-1fz" secondAttribute="centerY" id="AEi-Pa-Fed"/>
+                                <constraint firstItem="ftT-ng-Wag" firstAttribute="centerX" secondItem="lcf-MJ-1fz" secondAttribute="centerX" id="xuY-ss-buF"/>
                             </constraints>
                         </view>
                         <sections>
@@ -383,14 +400,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="指定避難所" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fH6-oQ-WxX">
-                                                    <rect key="frame" x="79" y="0.0" width="315" height="43.666667938232422"/>
+                                                    <rect key="frame" x="67" y="0.0" width="327" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="shelter" id="LLm-IW-D6c">
-                                                    <rect key="frame" x="20" y="0.0" width="44" height="43.666666666666664"/>
+                                                    <rect key="frame" x="20" y="5.6666666666666679" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -595,7 +612,7 @@
         <image name="light-beacon" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
         <image name="nearby-alt" width="32" height="32"/>
-        <image name="shelter" width="128" height="128"/>
+        <image name="shelter" width="32" height="32"/>
         <image name="square-empty-info" width="32" height="32"/>
         <image name="toilet" width="32" height="32"/>
         <image name="webcam" width="32" height="32"/>

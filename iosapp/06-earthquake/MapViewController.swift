@@ -14,8 +14,12 @@ class BuildingAnnotation : MKPointAnnotation {}
 class WebcamAnnotation : MKPointAnnotation {}
 class ShelterAnnotation : MKPointAnnotation {}
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, IconSettingsViewControllerDelegate {
+
     @IBOutlet weak var mapView: MKMapView!
+
+    private lazy var iconSettingsRepository: IconSettingsRepository = IconSettingsRepositoryImpl()
+
     var buildings = [String]()
     var toilets = [String]()
     var webcams = [String]()
@@ -31,63 +35,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 設定のデフォルト値をセット
+        UserDefaults.standard.register(defaults: ["buildings" : true,
+                                                  "toilets" : true,
+                                                  "webcams" : true,
+                                                  "shelters" : true])
+
         lm.delegate = self
-        buildings = loadCSV(name: "buildings_locations")
-        toilets = loadCSV(name: "toilets_locations")
-        webcams = loadCSV(name: "webcams_locations")
-        shelters = loadCSV(name: "shelters_locations")
 
-        for line in buildings {
-            if line == "" { continue }
-            let row = line.components(separatedBy: ",")
-            let pa = BuildingAnnotation()
-            let lng = Double(row[5]) ?? 0
-            let lat = Double(row[6]) ?? 0
-
-            pa.coordinate = CLLocationCoordinate2DMake(
-                lat,lng)
-            pa.title = row[0]
-            pa.subtitle = "標高" + row[2] + "m " + row[3] + " " + row[4] + "階"
-            mapView.addAnnotation(pa)
-        }
-        for line in toilets {
-            if line == "" { continue }
-            let row = line.components(separatedBy: ",")
-            let pa = TolietAnnotation()
-            let lng = Double(row[2]) ?? 0
-            let lat = Double(row[3]) ?? 0
-
-            pa.coordinate = CLLocationCoordinate2DMake(
-                lat,lng)
-            pa.title = row[0]
-            pa.subtitle = "トイレ" + row[1] + "個"
-            mapView.addAnnotation(pa)
-        }
-        for line in webcams {
-            if line == "" { continue }
-            let row = line.components(separatedBy: ",")
-            let pa = WebcamAnnotation()
-            let lng = Double(row[2]) ?? 0
-            let lat = Double(row[3]) ?? 0
-
-            pa.coordinate = CLLocationCoordinate2DMake(
-                lat,lng)
-            pa.title = row[0]
-            pa.subtitle = "Powered by ii-nami.com"
-            mapView.addAnnotation(pa)
-        }
-        for line in shelters {
-            if line == "" { continue }
-            let row = line.components(separatedBy: ",")
-            let pa = ShelterAnnotation()
-            let lng = Double(row[2]) ?? 0
-            let lat = Double(row[3]) ?? 0
-
-            pa.coordinate = CLLocationCoordinate2DMake(
-                lat,lng)
-            pa.title = row[0]
-            mapView.addAnnotation(pa)
-        }
+        loadData()
     }
 
     @IBAction func didTapCurrentButton(_ sender: Any) {
@@ -101,6 +57,84 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         r.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         mapView.setRegion(r, animated: true)
+    }
+
+    private func clearData() {
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
+    }
+
+    private func loadData() {
+        // 津波避難ビル
+        if iconSettingsRepository.fetch(key: "buildings") {
+            buildings = loadCSV(name: "buildings_locations")
+            for line in buildings {
+                if line == "" { continue }
+                let row = line.components(separatedBy: ",")
+                let pa = BuildingAnnotation()
+                let lng = Double(row[5]) ?? 0
+                let lat = Double(row[6]) ?? 0
+
+                pa.coordinate = CLLocationCoordinate2DMake(
+                    lat,lng)
+                pa.title = row[0]
+                pa.subtitle = "標高" + row[2] + "m " + row[3] + " " + row[4] + "階"
+                mapView.addAnnotation(pa)
+            }
+        }
+
+        // マンホールトイレ
+        if iconSettingsRepository.fetch(key: "toilets") {
+            toilets = loadCSV(name: "toilets_locations")
+            for line in toilets {
+                if line == "" { continue }
+                let row = line.components(separatedBy: ",")
+                let pa = TolietAnnotation()
+                let lng = Double(row[2]) ?? 0
+                let lat = Double(row[3]) ?? 0
+
+                pa.coordinate = CLLocationCoordinate2DMake(
+                    lat,lng)
+                pa.title = row[0]
+                pa.subtitle = "トイレ" + row[1] + "個"
+                mapView.addAnnotation(pa)
+            }
+        }
+
+        // ウェブカメラ
+        if iconSettingsRepository.fetch(key: "webcams") {
+            webcams = loadCSV(name: "webcams_locations")
+            for line in webcams {
+                if line == "" { continue }
+                let row = line.components(separatedBy: ",")
+                let pa = WebcamAnnotation()
+                let lng = Double(row[2]) ?? 0
+                let lat = Double(row[3]) ?? 0
+
+                pa.coordinate = CLLocationCoordinate2DMake(
+                    lat,lng)
+                pa.title = row[0]
+                pa.subtitle = "Powered by ii-nami.com"
+                mapView.addAnnotation(pa)
+            }
+        }
+
+        // 指定避難所
+        if iconSettingsRepository.fetch(key: "shelters") {
+            shelters = loadCSV(name: "shelters_locations")
+            for line in shelters {
+                if line == "" { continue }
+                let row = line.components(separatedBy: ",")
+                let pa = ShelterAnnotation()
+                let lng = Double(row[2]) ?? 0
+                let lat = Double(row[3]) ?? 0
+
+                pa.coordinate = CLLocationCoordinate2DMake(
+                    lat,lng)
+                pa.title = row[0]
+                mapView.addAnnotation(pa)
+            }
+        }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -201,6 +235,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
 
+    func iconSettingsViewControllerDidClose() {
+        clearData()
+        loadData()
+    }
+
     private func loadCSV(name:String) -> [String]{
         let path = Bundle.main.path(forResource:name, ofType:"csv")!
         let csvString = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
@@ -208,8 +247,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let ivc = segue.destination as? IinamiViewController else { return }
-        ivc.webcam_url = webcam_url
-        ivc.webcam_title = webcam_title
+        if let ivc = segue.destination as? IinamiViewController {
+            ivc.webcam_url = webcam_url
+            ivc.webcam_title = webcam_title
+        } else if let ivc = segue.destination as? IconSettingsViewController {
+            ivc.delegate = self
+        }
     }
 }
