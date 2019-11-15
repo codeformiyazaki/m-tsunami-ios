@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -179,30 +179,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宮崎津波防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-Rf-Xgt">
+                                <rect key="frame" x="16" y="0.0" width="382" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jHf-Rh-zgY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxN-bd-t8E">
-                                <rect key="frame" x="0.0" y="31" width="414" height="656"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宮崎津波防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-Rf-Xgt">
-                                <rect key="frame" x="16" y="0.0" width="382" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="jHf-Rh-zgY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="KxN-bd-t8E" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="L4g-fq-XSi"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="Uam-Rf-Xgt" secondAttribute="trailing" constant="16" id="Skc-bE-jpR"/>
                             <constraint firstItem="Uam-Rf-Xgt" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="dE0-2I-zkv"/>
-                            <constraint firstItem="KxN-bd-t8E" firstAttribute="top" secondItem="Uam-Rf-Xgt" secondAttribute="bottom" constant="8" id="jmt-MN-vCD"/>
+                            <constraint firstItem="KxN-bd-t8E" firstAttribute="top" secondItem="Uam-Rf-Xgt" secondAttribute="bottom" id="jmt-MN-vCD"/>
                             <constraint firstItem="KxN-bd-t8E" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="jwj-XE-4Qj"/>
                             <constraint firstItem="KxN-bd-t8E" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="kL0-4x-hQh"/>
                             <constraint firstItem="Uam-Rf-Xgt" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="16" id="mVX-XQ-Ej5"/>
@@ -227,25 +227,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宮崎津波防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B46-W0-6gW">
-                                <rect key="frame" x="16" y="0.0" width="382" height="23"/>
+                                <rect key="frame" x="16" y="0.0" width="382" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="VHR-Wm-QDS"/>
+                                    <constraint firstAttribute="height" constant="44" id="VHR-Wm-QDS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F4G-9S-2LS">
-                                <rect key="frame" x="0.0" y="31" width="414" height="656"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <connections>
                                     <outlet property="delegate" destination="weR-rN-Xxu" id="bZX-yo-rbk"/>
                                 </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ky-N5-sfQ">
-                                <rect key="frame" x="10" y="2.6666666666666661" width="22" height="22"/>
+                                <rect key="frame" x="10" y="9" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="22" id="BB0-Q3-csa"/>
-                                    <constraint firstAttribute="height" constant="22" id="Gd9-VC-3sY"/>
+                                    <constraint firstAttribute="width" constant="30" id="BB0-Q3-csa"/>
+                                    <constraint firstAttribute="height" constant="30" id="Gd9-VC-3sY"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" image="near-me"/>
@@ -254,10 +254,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-yG-px1">
-                                <rect key="frame" x="382" y="2.6666666666666661" width="22" height="22"/>
+                                <rect key="frame" x="374" y="9" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="f8y-Hu-HgJ"/>
-                                    <constraint firstAttribute="width" constant="22" id="jE7-BY-d2l"/>
+                                    <constraint firstAttribute="height" constant="30" id="f8y-Hu-HgJ"/>
+                                    <constraint firstAttribute="width" constant="30" id="jE7-BY-d2l"/>
                                 </constraints>
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" image="layer"/>
@@ -272,7 +272,7 @@
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="B46-W0-6gW" secondAttribute="trailing" constant="16" id="30Y-dY-GIN"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="top" secondItem="lPu-td-LCo" secondAttribute="top" id="4Hr-Md-F34"/>
                             <constraint firstItem="B46-W0-6gW" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" constant="16" id="8lj-mQ-0w9"/>
-                            <constraint firstItem="F4G-9S-2LS" firstAttribute="top" secondItem="B46-W0-6gW" secondAttribute="bottom" constant="8" id="e3w-15-faZ"/>
+                            <constraint firstItem="F4G-9S-2LS" firstAttribute="top" secondItem="B46-W0-6gW" secondAttribute="bottom" id="e3w-15-faZ"/>
                             <constraint firstItem="1ky-N5-sfQ" firstAttribute="centerY" secondItem="B46-W0-6gW" secondAttribute="centerY" constant="2" id="m1W-D6-FA9"/>
                             <constraint firstItem="F4G-9S-2LS" firstAttribute="leading" secondItem="lPu-td-LCo" secondAttribute="leading" id="pNw-z9-8Nv"/>
                             <constraint firstItem="lPu-td-LCo" firstAttribute="trailing" secondItem="Onv-yG-px1" secondAttribute="trailing" constant="10" id="qMZ-Me-4WV"/>
@@ -304,6 +304,15 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWv-24-xql">
+                                    <rect key="frame" x="8" y="2" width="40" height="41"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <state key="normal" title="✗"/>
+                                    <connections>
+                                        <action selector="closeButtonDidTap:" destination="v19-a3-j0z" eventType="touchUpInside" id="w2L-fB-axr"/>
+                                    </connections>
+                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコンの設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m2-wG-0UC">
                                     <rect key="frame" x="146" y="11.666666666666664" width="122" height="21"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -324,7 +333,7 @@
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="チェックを入れたアイコンが地図上に表示されます" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftT-ng-Wag">
                                     <rect key="frame" x="31" y="13" width="352" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
