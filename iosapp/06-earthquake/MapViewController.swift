@@ -9,10 +9,16 @@
 import UIKit
 import MapKit
 
-class TolietAnnotation : MKPointAnnotation {}
-class BuildingAnnotation : MKPointAnnotation {}
-class WebcamAnnotation : MKPointAnnotation {}
-class ShelterAnnotation : MKPointAnnotation {}
+class CustomAnnotation : MKPointAnnotation {
+    let name:String
+    let color:UIColor
+
+    init(name:String, color:UIColor) {
+        self.name = name
+        self.color = color
+        super.init()
+    }
+}
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, IconSettingsViewControllerDelegate {
 
@@ -20,10 +26,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     private lazy var iconSettingsRepository: IconSettingsRepository = IconSettingsRepositoryImpl()
 
-    var buildings = [String]()
-    var toilets = [String]()
-    var webcams = [String]()
     var shelters = [String]()
+    var webcams = [String]()
 
     let lm = CLLocationManager()
     var route:MKRoute?
@@ -35,11 +39,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 指定緊急避難場所（地震発生時の一時避難場所） > sites4earthquake
+        // 指定緊急避難場所（津波発生時の一時避難場所） > sites4tsunami
+        // 指定緊急避難場所（津波避難ビル） > buildings
+        // 指定避難所 > shelters
+        // 指定避難所兼指定緊急避難場所 > site_and_shelters
+
         // 設定のデフォルト値をセット
-        UserDefaults.standard.register(defaults: ["buildings" : true,
-                                                  "toilets" : true,
-                                                  "webcams" : true,
-                                                  "shelters" : true])
+        UserDefaults.standard.register(defaults: ["site4earthquake" : true,
+                                                  "site4tsunami" : true,
+                                                  "building" : true,
+                                                  "shelter" : true,
+                                                  "site_and_shelter" : true,
+                                                  "webcams" : true])
 
         lm.delegate = self
 
@@ -65,40 +77,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     private func loadData() {
-        // 津波避難ビル
-        if iconSettingsRepository.fetch(key: "buildings") {
-            buildings = loadCSV(name: "buildings_locations")
-            for line in buildings {
-                if line == "" { continue }
-                let row = line.components(separatedBy: ",")
-                let pa = BuildingAnnotation()
-                let lng = Double(row[5]) ?? 0
-                let lat = Double(row[6]) ?? 0
+        let TYPE2NAME = ["指定緊急避難場所（地震発生時の一時避難場所）":"site4earthquake",
+                         "指定緊急避難場所（津波発生時の一時避難場所）":"site4tsunami",
+                         "指定緊急避難場所（津波避難ビル）":"building",
+                         "指定避難所":"shelter",
+                         "指定避難所兼指定緊急避難場所":"site_and_shelter"]
+        let TYPE2COLOR = ["指定緊急避難場所（地震発生時の一時避難場所）":UIColor.orange,
+                          "指定緊急避難場所（津波発生時の一時避難場所）":UIColor.orange,
+                          "指定緊急避難場所（津波避難ビル）":UIColor.gray,
+                          "指定避難所":UIColor.orange,
+                          "指定避難所兼指定緊急避難場所":UIColor.orange]
 
-                pa.coordinate = CLLocationCoordinate2DMake(
-                    lat,lng)
-                pa.title = row[0]
-                pa.subtitle = "標高" + row[2] + "m " + row[3] + " " + row[4] + "階"
-                mapView.addAnnotation(pa)
-            }
-        }
+        shelters = loadCSV(name: "shelters")
+        for line in shelters {
+            if line == "" { continue }
+            let row = line.components(separatedBy: ",")
+            let name = TYPE2NAME[row[0]] ?? ""
+            if !iconSettingsRepository.fetch(key: name) { continue }
+            let pa = CustomAnnotation(name: name, color: TYPE2COLOR[row[0]] ?? UIColor.red)
+            let lng = Double(row[5]) ?? 0
+            let lat = Double(row[6]) ?? 0
 
-        // マンホールトイレ
-        if iconSettingsRepository.fetch(key: "toilets") {
-            toilets = loadCSV(name: "toilets_locations")
-            for line in toilets {
-                if line == "" { continue }
-                let row = line.components(separatedBy: ",")
-                let pa = TolietAnnotation()
-                let lng = Double(row[2]) ?? 0
-                let lat = Double(row[3]) ?? 0
-
-                pa.coordinate = CLLocationCoordinate2DMake(
-                    lat,lng)
-                pa.title = row[0]
-                pa.subtitle = "トイレ" + row[1] + "個"
-                mapView.addAnnotation(pa)
-            }
+            pa.coordinate = CLLocationCoordinate2DMake(
+                lat,lng)
+            pa.title = row[1]
+            pa.subtitle = "想定収容人数: "+row[3]
+            if row[4] != "0" { pa.subtitle! += " MHトイレ基数: "+row[4] }
+            mapView.addAnnotation(pa)
         }
 
         // ウェブカメラ
@@ -107,7 +112,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for line in webcams {
                 if line == "" { continue }
                 let row = line.components(separatedBy: ",")
-                let pa = WebcamAnnotation()
+                let pa = CustomAnnotation(name: "webcam", color: UIColor.blue)
                 let lng = Double(row[2]) ?? 0
                 let lat = Double(row[3]) ?? 0
 
@@ -118,46 +123,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 mapView.addAnnotation(pa)
             }
         }
-
-        // 指定避難所
-        if iconSettingsRepository.fetch(key: "shelters") {
-            shelters = loadCSV(name: "shelters_locations")
-            for line in shelters {
-                if line == "" { continue }
-                let row = line.components(separatedBy: ",")
-                let pa = ShelterAnnotation()
-                let lng = Double(row[2]) ?? 0
-                let lat = Double(row[3]) ?? 0
-
-                pa.coordinate = CLLocationCoordinate2DMake(
-                    lat,lng)
-                pa.title = row[0]
-                mapView.addAnnotation(pa)
-            }
-        }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
-        var name = "building"
-        var color = UIColor.gray
-        if annotation is TolietAnnotation {
-            name = "toilet"
-            color = UIColor.orange
-        } else if annotation is WebcamAnnotation {
-            name = "webcam"
-            color = UIColor.blue
-        } else if annotation is ShelterAnnotation {
-            name = "shelter"
-            color = UIColor.orange
-        }
-        var av = mapView.dequeueReusableAnnotationView(withIdentifier: name) as? MKMarkerAnnotationView
+        let ca = annotation as? CustomAnnotation ?? CustomAnnotation(name: "square-empty-info", color: UIColor.red)
+        var av = mapView.dequeueReusableAnnotationView(withIdentifier: ca.name) as? MKMarkerAnnotationView
         if av == nil {
-            av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: name)
-            av!.glyphImage = UIImage(named: name)
-            av!.markerTintColor = color
+            av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: ca.name)
+            av!.glyphImage = UIImage(named: ca.name)
+            av!.markerTintColor = ca.color
         } else {
             av!.annotation = annotation
         }
@@ -172,8 +149,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView){
-        guard let a = view.annotation else { return }
-        if a is WebcamAnnotation {
+        guard let a = view.annotation as? CustomAnnotation else { return }
+        if a.name == "webcam" {
             webcam_url = nil
             webcam_title = a.title ?? ""
             for line in webcams {

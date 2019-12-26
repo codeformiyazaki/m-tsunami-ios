@@ -9,6 +9,7 @@
 - 災害時に稼働するマンホールトイレ
 - [海岸線を監視するウェブカメラ](https://www.ii-nami.com/)
 - [指定避難所](https://www.geospatial.jp/ckan/dataset/hinanbasho/resource/b2b56005-9c68-432c-8fa8-6cb312459a08)
+- [指定避難所 on code4miyazaki](https://github.com/code4miyazaki/geojson/blob/master/hinanzyo.geojson)
 
 避難ビルや避難所・トイレのマーカーをクリックすると、現在位置からの経路を表示します。あくまで目安としてお使いください。
 災害時にも通行できることを保証するものではありません。

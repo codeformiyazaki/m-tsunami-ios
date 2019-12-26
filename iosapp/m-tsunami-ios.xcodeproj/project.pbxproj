@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13013EE323457DD900D09F8C /* shelters_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13013EE223457DD900D09F8C /* shelters_locations.csv */; };
-		131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 131385E02286B5DD003E6D62 /* toilets_locations.csv */; };
 		1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1367365622BB99C8004E6E0D /* InfoViewController.swift */; };
 		137330C822B334F800889E6F /* AlertDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137330C722B334F800889E6F /* AlertDetailController.swift */; };
-		139ED4ED227EE0D800B3AAC3 /* buildings_locations.csv in Resources */ = {isa = PBXBuildFile; fileRef = 139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */; };
 		13BC4FC622588FF3003C240D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC522588FF3003C240D /* WebKit.framework */; };
 		13BC4FC822589396003C240D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BC4FC722589396003C240D /* MapKit.framework */; };
 		13BC4FCA22589B35003C240D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BC4FC922589B35003C240D /* MapViewController.swift */; };
@@ -25,6 +22,7 @@
 		13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13C4BDAB21F47C1D00060742 /* LaunchScreen.storyboard */; };
 		13C4BDB821F47C1E00060742 /* _6_earthquakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDB721F47C1E00060742 /* _6_earthquakeTests.swift */; };
 		13C4BDC321F47C1E00060742 /* _6_earthquakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */; };
+		13F07E0523B4C4A10065BEAF /* shelters.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13F07E0423B4C4A10065BEAF /* shelters.csv */; };
 		216A345C2364A06100F3C19E /* IconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A345B2364A06100F3C19E /* IconSettingsViewController.swift */; };
 		21F86B2F23689EFB00BBEAF4 /* IconSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */; };
 /* End PBXBuildFile section */
@@ -47,12 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13013EE223457DD900D09F8C /* shelters_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shelters_locations.csv; sourceTree = "<group>"; };
-		131385E02286B5DD003E6D62 /* toilets_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = toilets_locations.csv; sourceTree = "<group>"; };
 		131CD1F722E6C85900AC3008 /* 宮崎津波防災.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "宮崎津波防災.entitlements"; sourceTree = "<group>"; };
 		1367365622BB99C8004E6E0D /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		137330C722B334F800889E6F /* AlertDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDetailController.swift; sourceTree = "<group>"; };
-		139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildings_locations.csv; sourceTree = "<group>"; };
 		13BC4FC522588FF3003C240D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		13BC4FC722589396003C240D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		13BC4FC922589B35003C240D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +67,7 @@
 		13C4BDBE21F47C1E00060742 /* 06-earthquakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "06-earthquakeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_earthquakeUITests.swift; sourceTree = "<group>"; };
 		13C4BDC421F47C1E00060742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F07E0423B4C4A10065BEAF /* shelters.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shelters.csv; sourceTree = "<group>"; };
 		216A345B2364A06100F3C19E /* IconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsViewController.swift; sourceTree = "<group>"; };
 		21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,9 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				131CD1F722E6C85900AC3008 /* 宮崎津波防災.entitlements */,
-				139ED4EC227EE0D800B3AAC3 /* buildings_locations.csv */,
-				13013EE223457DD900D09F8C /* shelters_locations.csv */,
-				131385E02286B5DD003E6D62 /* toilets_locations.csv */,
+				13F07E0423B4C4A10065BEAF /* shelters.csv */,
 				13C4867C22D0722800536310 /* webcams_locations.csv */,
 				13C4BDA021F47C1A00060742 /* AppDelegate.swift */,
 				13C4BDA221F47C1A00060742 /* AlertsViewController.swift */,
@@ -291,13 +285,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				131385E12286B5DD003E6D62 /* toilets_locations.csv in Resources */,
 				13C4BDAD21F47C1D00060742 /* LaunchScreen.storyboard in Resources */,
-				139ED4ED227EE0D800B3AAC3 /* buildings_locations.csv in Resources */,
 				13C4BDAA21F47C1D00060742 /* Assets.xcassets in Resources */,
+				13F07E0523B4C4A10065BEAF /* shelters.csv in Resources */,
 				13C4BDA821F47C1A00060742 /* Main.storyboard in Resources */,
 				13C4867D22D0722800536310 /* webcams_locations.csv in Resources */,
-				13013EE323457DD900D09F8C /* shelters_locations.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
