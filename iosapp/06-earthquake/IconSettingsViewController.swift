@@ -13,13 +13,13 @@ protocol IconSettingsViewControllerDelegate: class {
 }
 
 class IconSettingsViewController: UITableViewController {
-
-    enum IconSetting: Int, CaseIterable {
-        case buildings
-        case toilets
-        case webcams
-        case shelters
-    }
+    let keys = ["site4earthquake",
+                "site4tsunami",
+                "building",
+                "shelter",
+                "site_and_shelter",
+                "webcams"]
+    let labels = ["地震発生時の一時避難所","津波発生時の一時避難所","津波避難ビル","指定避難所","指定避難所兼指定緊急避難場所","海岸線を監視するウェブカメラ"]
 
     weak var delegate: IconSettingsViewControllerDelegate?
 
@@ -44,21 +44,10 @@ class IconSettingsViewController: UITableViewController {
     }
 
     private func load() {
-        IconSetting.allCases.forEach {
-            var key = ""
-            switch $0 {
-            case .buildings:
-                key = "buildings"
-            case .toilets:
-                key = "toilets"
-            case .webcams:
-                key = "webcams"
-            case .shelters:
-                key = "shelters"
-            }
-            let index = IndexPath(row: $0.rawValue, section: 0)
+        for i in 0..<keys.count {
+            let index = IndexPath(row: i, section: 0)
             let cell = tableView.cellForRow(at: index)
-            cell?.accessoryType = iconSettingsRepository.fetch(key: key) ? .checkmark : .none
+            cell?.accessoryType = iconSettingsRepository.fetch(key: keys[i]) ? .checkmark : .none
         }
     }
 
@@ -69,23 +58,19 @@ class IconSettingsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return IconSetting.allCases.count
+        return keys.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.imageView?.image = UIImage(named: keys[indexPath.row])
+        cell.textLabel?.text = labels[indexPath.row]
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch IconSetting(rawValue: indexPath.row) {
-        case .buildings:
-            iconSettingsRepository.toggle(key: "buildings")
-        case .toilets:
-            iconSettingsRepository.toggle(key: "toilets")
-        case .webcams:
-            iconSettingsRepository.toggle(key: "webcams")
-        case .shelters:
-            iconSettingsRepository.toggle(key: "shelters")
-        case .none:
-            break
-        }
+        iconSettingsRepository.toggle(key: keys[indexPath.row])
         load()
     }
 }
