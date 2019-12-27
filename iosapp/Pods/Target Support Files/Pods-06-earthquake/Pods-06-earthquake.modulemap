@@ -1,0 +1,6 @@
+framework module Pods_06_earthquake {
+  umbrella header "Pods-06-earthquake-umbrella.h"
+
+  export *
+  module * { export * }
+}
