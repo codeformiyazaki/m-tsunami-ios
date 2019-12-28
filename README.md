@@ -89,3 +89,7 @@ heroku run rake db:migrate --app m-tsunami
 ```
 git subtree push --prefix railsapp production master
 ```
+
+## Firebase
+
+データストア、ユーザー管理に Firebase を利用しています。GoogleService-Info.plist はプロジェクトメンバーから共有してもらってください。
