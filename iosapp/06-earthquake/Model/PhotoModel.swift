@@ -14,9 +14,8 @@ final class PhotoModel {
     let db = Firestore.firestore()
     
     func addPhoto(imagePath: String, latitude: Double, longitude: Double, completion: @escaping (Result<Void, Error>) -> Void) {
-        // todo: Auth
-        //        guard let userId = Auth.auth().currentUser?.uid else { return }
-        let userId = "hoge"
+        guard let userId = UserManager.sharedInstance.userId else { return }
+
         let data = ["imagePath": imagePath,
                     "location": GeoPoint(latitude: latitude, longitude: longitude),
                     "userId": userId,

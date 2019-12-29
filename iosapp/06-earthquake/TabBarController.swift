@@ -12,8 +12,13 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         delegate = self
+
+        if UserManager.sharedInstance.userId == nil {
+            UserManager.sharedInstance.signInAnonymously {}
+        }
     }
 
     func didSelectCamera() {
@@ -27,8 +32,8 @@ class TabBarController: UITabBarController {
     }
 
     func uploadImage(image: UIImage) {
-        // todo: Auth
-        let userId = "hoge"
+        guard let userId = UserManager.sharedInstance.userId else { return }
+
         StorageModel().uploadImage(uid: userId, image: image) { [weak self] result in
             switch result {
             case .success(let imagePath):
