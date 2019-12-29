@@ -17,7 +17,7 @@ class TabBarController: UITabBarController {
     }
 
     func didSelectCamera() {
-        let sourceType = UIImagePickerController.SourceType.photoLibrary
+        let sourceType = UIImagePickerController.SourceType.camera
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let cameraPicker = UIImagePickerController()
             cameraPicker.sourceType = sourceType

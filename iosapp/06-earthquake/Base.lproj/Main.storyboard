@@ -455,7 +455,7 @@
             </objects>
             <point key="canvasLocation" x="2416" y="-158"/>
         </scene>
-        <!--Jidori-->
+        <!--Camera-->
         <scene sceneID="SX2-LB-07G">
             <objects>
                 <viewController restorationIdentifier="Camera" id="XJL-cv-0os" sceneMemberID="viewController">
@@ -465,7 +465,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zjF-xQ-a0h"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Jidori" image="camera" id="KxF-mX-kNk"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" id="KxF-mX-kNk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMs-zh-uqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
