@@ -37,11 +37,9 @@ class TabBarController: UITabBarController {
         StorageModel().uploadImage(uid: userId, image: image) { [weak self] result in
             switch result {
             case .success(let imagePath):
-                // todo: mapVC に依存しないほうが良さそう。UserManager シングルトンに持たせるか？
-                if let mapViewController = self?.viewControllers?[0] as? MapViewController,
-                    let coordinate = mapViewController.lm.location?.coordinate {
-                    self?.addPhoto(imagePath: imagePath, latitude: coordinate.latitude, longitude: coordinate.longitude)
-                }
+                self?.addPhoto(imagePath: imagePath,
+                               latitude: UserManager.sharedInstance.latitude,
+                               longitude: UserManager.sharedInstance.longitude)
             case .failure(let error):
                 print("error!", error.localizedDescription)
             }

@@ -17,6 +17,9 @@ final class UserManager: NSObject {
         return Auth.auth().currentUser?.uid
     }
 
+    var latitude = 0.0
+    var longitude = 0.0
+
     private override init() {}
 
     func signInAnonymously(requestFinished: @escaping () -> Void) {
