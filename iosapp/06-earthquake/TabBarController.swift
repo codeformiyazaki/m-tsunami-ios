@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class TabBarController: UITabBarController {
 
@@ -34,6 +35,8 @@ class TabBarController: UITabBarController {
     func uploadImage(image: UIImage) {
         guard let userId = UserManager.sharedInstance.userId else { return }
 
+        SVProgressHUD.show()
+
         StorageModel().uploadImage(uid: userId, image: image) { [weak self] result in
             switch result {
             case .success(let imagePath):
@@ -42,6 +45,7 @@ class TabBarController: UITabBarController {
                                longitude: UserManager.sharedInstance.longitude)
             case .failure(let error):
                 print("error!", error.localizedDescription)
+                SVProgressHUD.showError(withStatus: "Network Error!")
             }
         }
     }
@@ -50,9 +54,10 @@ class TabBarController: UITabBarController {
         PhotoModel().addPhoto(imagePath: imagePath, latitude: latitude, longitude: longitude) { result in
             switch result {
             case .success:
-                print("success!")
+                SVProgressHUD.showSuccess(withStatus: "写真を投稿しました")
             case .failure(let error):
                 print("error!", error.localizedDescription)
+                SVProgressHUD.showError(withStatus: "Network Error!")
             }
         }
     }
