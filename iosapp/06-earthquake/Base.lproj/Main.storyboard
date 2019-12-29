@@ -455,6 +455,22 @@
             </objects>
             <point key="canvasLocation" x="2416" y="-158"/>
         </scene>
+        <!--Camera-->
+        <scene sceneID="SX2-LB-07G">
+            <objects>
+                <viewController restorationIdentifier="Camera" id="XJL-cv-0os" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8OD-cI-xbh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zjF-xQ-a0h"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Camera" image="camera" id="KxF-mX-kNk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HMs-zh-uqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375" y="1083"/>
+        </scene>
         <!--Info-->
         <scene sceneID="ge1-2X-Yfy">
             <objects>
@@ -538,7 +554,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -547,6 +563,7 @@
                     <connections>
                         <segue destination="weR-rN-Xxu" kind="relationship" relationship="viewControllers" id="sL1-Q7-agQ"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="XJL-cv-0os" kind="relationship" relationship="viewControllers" id="zhC-lV-bhL"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="tNz-z9-dJh" kind="relationship" relationship="viewControllers" id="hvm-U7-JXP"/>
                     </connections>
@@ -559,6 +576,7 @@
     <resources>
         <image name="banner" width="992" height="402"/>
         <image name="building" width="32" height="32"/>
+        <image name="camera" width="26" height="20"/>
         <image name="earthquake" width="256" height="256"/>
         <image name="layer" width="18" height="18"/>
         <image name="light-beacon" width="32" height="32"/>

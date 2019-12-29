@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,9 @@
 		13C4BDC321F47C1E00060742 /* _6_earthquakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C4BDC221F47C1E00060742 /* _6_earthquakeUITests.swift */; };
 		13F07E0523B4C4A10065BEAF /* shelters.csv in Resources */ = {isa = PBXBuildFile; fileRef = 13F07E0423B4C4A10065BEAF /* shelters.csv */; };
 		211BD74923B653C90062C7CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 211BD74823B653C90062C7CE /* GoogleService-Info.plist */; };
+		211BD74B23B78CC50062C7CE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD74A23B78CC50062C7CE /* TabBarController.swift */; };
+		211BD74D23B798720062C7CE /* StorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD74C23B798720062C7CE /* StorageModel.swift */; };
+		211BD74F23B7A5CE0062C7CE /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD74E23B7A5CE0062C7CE /* PhotoModel.swift */; };
 		216A345C2364A06100F3C19E /* IconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 216A345B2364A06100F3C19E /* IconSettingsViewController.swift */; };
 		21F86B2F23689EFB00BBEAF4 /* IconSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */; };
 		31ABA3F16A2989481CC3EED2 /* Pods_06_earthquakeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF58EDD46D8B0880544801E /* Pods_06_earthquakeTests.framework */; };
@@ -73,6 +76,9 @@
 		13C4BDC421F47C1E00060742 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13F07E0423B4C4A10065BEAF /* shelters.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shelters.csv; sourceTree = "<group>"; };
 		211BD74823B653C90062C7CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		211BD74A23B78CC50062C7CE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		211BD74C23B798720062C7CE /* StorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageModel.swift; path = Model/StorageModel.swift; sourceTree = "<group>"; };
+		211BD74E23B7A5CE0062C7CE /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Model/PhotoModel.swift; sourceTree = "<group>"; };
 		216A345B2364A06100F3C19E /* IconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsViewController.swift; sourceTree = "<group>"; };
 		21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsRepository.swift; sourceTree = "<group>"; };
 		263ADEFEA0C6436DE9D436C4 /* Pods-06-earthquakeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06-earthquakeUITests.release.xcconfig"; path = "Target Support Files/Pods-06-earthquakeUITests/Pods-06-earthquakeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +176,9 @@
 				13C4867E22D07B0500536310 /* IinamiViewController.swift */,
 				216A345B2364A06100F3C19E /* IconSettingsViewController.swift */,
 				21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */,
+				211BD74A23B78CC50062C7CE /* TabBarController.swift */,
+				211BD74C23B798720062C7CE /* StorageModel.swift */,
+				211BD74E23B7A5CE0062C7CE /* PhotoModel.swift */,
 			);
 			path = "06-earthquake";
 			sourceTree = "<group>";
@@ -202,7 +211,6 @@
 				2BC33355604A389628E0DA61 /* Pods-06-earthquakeUITests.debug.xcconfig */,
 				263ADEFEA0C6436DE9D436C4 /* Pods-06-earthquakeUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -442,8 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				216A345C2364A06100F3C19E /* IconSettingsViewController.swift in Sources */,
+				211BD74F23B7A5CE0062C7CE /* PhotoModel.swift in Sources */,
+				211BD74D23B798720062C7CE /* StorageModel.swift in Sources */,
 				137330C822B334F800889E6F /* AlertDetailController.swift in Sources */,
 				13C4BDA521F47C1A00060742 /* HinataViewController.swift in Sources */,
+				211BD74B23B78CC50062C7CE /* TabBarController.swift in Sources */,
 				13C4BDA121F47C1A00060742 /* AppDelegate.swift in Sources */,
 				13C4BDA321F47C1A00060742 /* AlertsViewController.swift in Sources */,
 				1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */,
