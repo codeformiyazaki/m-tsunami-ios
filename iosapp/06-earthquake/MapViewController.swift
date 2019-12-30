@@ -206,6 +206,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     // 位置情報が変更するたびに呼ばれる
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            UserManager.sharedInstance.latitude = location.coordinate.latitude
+            UserManager.sharedInstance.longitude = location.coordinate.longitude
+        }
+
         if needResetRegion {
             resetRegion()
             needResetRegion = false

@@ -12,8 +12,13 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
         delegate = self
+
+        if UserManager.sharedInstance.userId == nil {
+            UserManager.sharedInstance.signInAnonymously {}
+        }
     }
 
     func didSelectCamera() {
@@ -27,16 +32,14 @@ class TabBarController: UITabBarController {
     }
 
     func uploadImage(image: UIImage) {
-        // todo: Auth
-        let userId = "hoge"
+        guard let userId = UserManager.sharedInstance.userId else { return }
+
         StorageModel().uploadImage(uid: userId, image: image) { [weak self] result in
             switch result {
             case .success(let imagePath):
-                // todo: mapVC に依存しないほうが良さそう。UserManager シングルトンに持たせるか？
-                if let mapViewController = self?.viewControllers?[0] as? MapViewController,
-                    let coordinate = mapViewController.lm.location?.coordinate {
-                    self?.addPhoto(imagePath: imagePath, latitude: coordinate.latitude, longitude: coordinate.longitude)
-                }
+                self?.addPhoto(imagePath: imagePath,
+                               latitude: UserManager.sharedInstance.latitude,
+                               longitude: UserManager.sharedInstance.longitude)
             case .failure(let error):
                 print("error!", error.localizedDescription)
             }
