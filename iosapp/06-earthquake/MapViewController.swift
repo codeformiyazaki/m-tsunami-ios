@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SVProgressHUD
 
 class CustomAnnotation : MKPointAnnotation {
     let name:String
@@ -121,6 +122,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 pa.title = row[0]
                 pa.subtitle = "Powered by ii-nami.com"
                 mapView.addAnnotation(pa)
+            }
+        }
+
+        // 投稿写真
+        PhotoModel().fetchPhotos { [weak self] result in
+            switch result {
+            case .success(let photos):
+                for photo in photos {
+                    let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
+                    annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
+                    annotation.title = photo.createdAt?.description
+                    annotation.subtitle = photo.userId
+                    self?.mapView.addAnnotation(annotation)
+                }
+            case .failure(let error):
+                print("error!", error.localizedDescription)
+                SVProgressHUD.showError(withStatus: "Network Error!")
             }
         }
     }
