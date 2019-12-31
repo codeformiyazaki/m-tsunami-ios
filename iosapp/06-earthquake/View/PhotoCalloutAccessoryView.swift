@@ -11,4 +11,5 @@ import UIKit
 class PhotoCalloutAccessoryView: UIView {
 
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var userLabel: UILabel!
 }

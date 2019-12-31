@@ -134,8 +134,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 for photo in photos {
                     let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
                     annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
-                    annotation.title = photo.createdAt?.dateValue().description
-                    annotation.subtitle = "photo.userId"
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.dateFormat = "yyyy/M/d HH:mm:ss"
+                    annotation.title = dateFormatter.string(from: (photo.createdAt?.dateValue())!)
                     annotation.imagePath = photo.imagePath
                     self?.mapView.addAnnotation(annotation)
                 }
@@ -159,9 +161,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if ca.name == "camera" {
                 av?.canShowCallout = true
                 let iv = Bundle.main.loadNibNamed("PhotoCalloutAccessoryView", owner: nil, options: nil)!.first as! PhotoCalloutAccessoryView
-//                let iv = UIImageView(image: UIImage(named: "camera"))
-                iv.contentMode = .scaleAspectFit
-                iv.clipsToBounds = true
                 av?.detailCalloutAccessoryView = iv
             }
         } else {
@@ -198,6 +197,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 switch result {
                 case .success(let image):
                     iv.photoImageView.image = image
+                    iv.userLabel.text = "ID: " + (UserManager.sharedInstance.userId ?? "")
                 case .failure(let error):
                     print("error!", error.localizedDescription)
                     SVProgressHUD.showError(withStatus: "Network Error!")
