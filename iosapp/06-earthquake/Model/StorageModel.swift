@@ -10,7 +10,19 @@ import Foundation
 import FirebaseStorage
 
 final class StorageModel {
-    
+
+    func fetchImage(imagePath: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        Storage.storage().reference()
+            .child(imagePath)
+            .getData(maxSize: 2 * 1024 * 1024) { data, error in
+                guard error == nil, let data = data, let image = UIImage(data: data) else {
+                    completion(.failure(error!))
+                    return
+                }
+                completion(.success(image))
+        }
+    }
+
     func uploadImage(uid: String, image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
         guard let data = image.jpegData(compressionQuality: 0.5) else { return }
         

@@ -11,12 +11,14 @@ import MapKit
 import SVProgressHUD
 
 class CustomAnnotation : MKPointAnnotation {
-    let name:String
-    let color:UIColor
+    let name: String
+    let color: UIColor
+    var imagePath: String?
 
-    init(name:String, color:UIColor) {
+    init(name: String, color: UIColor, imagePath: String? = nil) {
         self.name = name
         self.color = color
+        self.imagePath = imagePath
         super.init()
     }
 }
@@ -132,8 +134,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 for photo in photos {
                     let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
                     annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
-                    annotation.title = photo.createdAt?.description
-                    annotation.subtitle = photo.userId
+                    annotation.title = photo.createdAt?.dateValue().description
+                    annotation.subtitle = "photo.userId"
+                    annotation.imagePath = photo.imagePath
                     self?.mapView.addAnnotation(annotation)
                 }
             case .failure(let error):
@@ -151,10 +154,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var av = mapView.dequeueReusableAnnotationView(withIdentifier: ca.name) as? MKMarkerAnnotationView
         if av == nil {
             av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: ca.name)
-            av!.glyphImage = UIImage(named: ca.name)
-            av!.markerTintColor = ca.color
+            av?.glyphImage = UIImage(named: ca.name)
+            av?.markerTintColor = ca.color
+            if ca.name == "camera" {
+                av?.canShowCallout = true
+                let iv = Bundle.main.loadNibNamed("PhotoCalloutAccessoryView", owner: nil, options: nil)!.first as! PhotoCalloutAccessoryView
+//                let iv = UIImageView(image: UIImage(named: "camera"))
+                iv.contentMode = .scaleAspectFit
+                iv.clipsToBounds = true
+                av?.detailCalloutAccessoryView = iv
+            }
         } else {
-            av!.annotation = annotation
+            av?.annotation = annotation
         }
         return av
     }
@@ -179,6 +190,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
             self.performSegue(withIdentifier: "iinami", sender: self)
+            return
+        }
+        if a.name == "camera", let imagePath = a.imagePath {
+            let iv = view.detailCalloutAccessoryView as! PhotoCalloutAccessoryView
+            StorageModel().fetchImage(imagePath: imagePath) { result in
+                switch result {
+                case .success(let image):
+                    iv.photoImageView.image = image
+                case .failure(let error):
+                    print("error!", error.localizedDescription)
+                    SVProgressHUD.showError(withStatus: "Network Error!")
+                }
+            }
             return
         }
         guard let src = lm.location?.coordinate else { return }
