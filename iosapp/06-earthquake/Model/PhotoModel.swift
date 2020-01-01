@@ -13,6 +13,22 @@ final class PhotoModel {
 
     let db = Firestore.firestore()
 
+    func addSnapshotListener(completion: @escaping(Result<Photo, Error>) -> Void) {
+        db.collection("photos")
+        .addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot, error == nil else {
+                completion(.failure(error!))
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    let photo = Photo(data: diff.document.data())
+                    completion(.success(photo))
+                }
+            }
+        }
+    }
+
     func fetchPhotos(completion: @escaping(Result<[Photo], Error>) -> Void) {
         db.collection("photos")
             .order(by: "createdAt", descending: true)

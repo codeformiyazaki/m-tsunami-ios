@@ -14,14 +14,14 @@ struct Photo {
     var userId: String
     var imagePath: String
     var location: GeoPoint
-    var createdAt: Timestamp?
-    var updatedAt: Timestamp?
+    var createdAt: Timestamp
+    var updatedAt: Timestamp
 
     init(data: [String: Any]) {
         userId    = data["userId"] as? String ?? ""
         imagePath = data["imagePath"] as? String ?? ""
         location  = data["location"] as? GeoPoint ?? GeoPoint(latitude: 0, longitude: 0)
-        createdAt = data["createdAt"] as? Timestamp
-        updatedAt = data["updatedAt"] as? Timestamp
+        createdAt = data["createdAt"] as? Timestamp ?? Timestamp()
+        updatedAt = data["updatedAt"] as? Timestamp ?? Timestamp()
     }
 }

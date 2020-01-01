@@ -128,19 +128,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
 
         // 投稿写真
-        PhotoModel().fetchPhotos { [weak self] result in
+        PhotoModel().addSnapshotListener { [weak self] result in
             switch result {
-            case .success(let photos):
-                for photo in photos {
-                    let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
-                    annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                    dateFormatter.dateFormat = "yyyy/M/d HH:mm:ss"
-                    annotation.title = dateFormatter.string(from: (photo.createdAt?.dateValue())!)
-                    annotation.imagePath = photo.imagePath
-                    self?.mapView.addAnnotation(annotation)
-                }
+            case .success(let photo):
+                let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
+                annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                dateFormatter.dateFormat = "yyyy/M/d HH:mm:ss"
+                annotation.title = dateFormatter.string(from: photo.createdAt.dateValue())
+                annotation.imagePath = photo.imagePath
+                self?.mapView.addAnnotation(annotation)
             case .failure(let error):
                 print("error!", error.localizedDescription)
                 SVProgressHUD.showError(withStatus: "Network Error!")
@@ -160,6 +158,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             av?.markerTintColor = ca.color
             if ca.name == "camera" {
                 av?.canShowCallout = true
+                av?.displayPriority = .required
                 let iv = Bundle.main.loadNibNamed("PhotoCalloutAccessoryView", owner: nil, options: nil)!.first as! PhotoCalloutAccessoryView
                 av?.detailCalloutAccessoryView = iv
             }
