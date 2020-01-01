@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PhotoCalloutAccessoryView" customModule="宮崎津波防災" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="201"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="rvs-g1-avO">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="XgS-W9-JXa"/>
+                        <constraint firstAttribute="height" constant="180" id="xpX-n4-8nz"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM1-m5-LjM">
+                    <rect key="frame" x="0.0" y="188" width="240" height="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GM1-m5-LjM" secondAttribute="trailing" id="OwS-dC-DPr"/>
+                <constraint firstItem="rvs-g1-avO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Qm5-ry-yqh"/>
+                <constraint firstItem="rvs-g1-avO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Sqg-oB-wzx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rvs-g1-avO" secondAttribute="trailing" id="Umo-gu-HPk"/>
+                <constraint firstItem="GM1-m5-LjM" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="kfk-JB-f7j"/>
+                <constraint firstItem="GM1-m5-LjM" firstAttribute="top" secondItem="rvs-g1-avO" secondAttribute="bottom" constant="8" symbolic="YES" id="oga-S6-73j"/>
+                <constraint firstItem="GM1-m5-LjM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qHd-bM-loJ"/>
+                <constraint firstItem="GM1-m5-LjM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="yKJ-4l-0Ch"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="photoImageView" destination="rvs-g1-avO" id="Sob-yO-Erl"/>
+                <outlet property="userLabel" destination="GM1-m5-LjM" id="LV5-GK-CoC"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="117"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="loading" width="200" height="200"/>
+    </resources>
+</document>

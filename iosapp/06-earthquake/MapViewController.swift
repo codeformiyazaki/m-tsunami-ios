@@ -8,14 +8,17 @@
 
 import UIKit
 import MapKit
+import SVProgressHUD
 
 class CustomAnnotation : MKPointAnnotation {
-    let name:String
-    let color:UIColor
+    let name: String
+    let color: UIColor
+    var imagePath: String?
 
-    init(name:String, color:UIColor) {
+    init(name: String, color: UIColor, imagePath: String? = nil) {
         self.name = name
         self.color = color
+        self.imagePath = imagePath
         super.init()
     }
 }
@@ -123,6 +126,26 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 mapView.addAnnotation(pa)
             }
         }
+
+        // 投稿写真
+        PhotoModel().fetchPhotos { [weak self] result in
+            switch result {
+            case .success(let photos):
+                for photo in photos {
+                    let annotation = CustomAnnotation(name: "camera", color: UIColor.yellow)
+                    annotation.coordinate = CLLocationCoordinate2DMake(photo.location.latitude, photo.location.longitude)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                    dateFormatter.dateFormat = "yyyy/M/d HH:mm:ss"
+                    annotation.title = dateFormatter.string(from: (photo.createdAt?.dateValue())!)
+                    annotation.imagePath = photo.imagePath
+                    self?.mapView.addAnnotation(annotation)
+                }
+            case .failure(let error):
+                print("error!", error.localizedDescription)
+                SVProgressHUD.showError(withStatus: "Network Error!")
+            }
+        }
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -133,10 +156,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var av = mapView.dequeueReusableAnnotationView(withIdentifier: ca.name) as? MKMarkerAnnotationView
         if av == nil {
             av = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: ca.name)
-            av!.glyphImage = UIImage(named: ca.name)
-            av!.markerTintColor = ca.color
+            av?.glyphImage = UIImage(named: ca.name)
+            av?.markerTintColor = ca.color
+            if ca.name == "camera" {
+                av?.canShowCallout = true
+                let iv = Bundle.main.loadNibNamed("PhotoCalloutAccessoryView", owner: nil, options: nil)!.first as! PhotoCalloutAccessoryView
+                av?.detailCalloutAccessoryView = iv
+            }
         } else {
-            av!.annotation = annotation
+            av?.annotation = annotation
         }
         return av
     }
@@ -161,6 +189,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
             self.performSegue(withIdentifier: "iinami", sender: self)
+            return
+        }
+        if a.name == "camera", let imagePath = a.imagePath {
+            let iv = view.detailCalloutAccessoryView as! PhotoCalloutAccessoryView
+            StorageModel().fetchImage(imagePath: imagePath) { result in
+                switch result {
+                case .success(let image):
+                    iv.photoImageView.image = image
+                    iv.userLabel.text = "ID: " + (UserManager.sharedInstance.userId ?? "")
+                case .failure(let error):
+                    print("error!", error.localizedDescription)
+                    SVProgressHUD.showError(withStatus: "Network Error!")
+                }
+            }
             return
         }
         guard let src = lm.location?.coordinate else { return }
