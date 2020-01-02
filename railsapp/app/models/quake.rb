@@ -1,4 +1,6 @@
 class Quake < ApplicationRecord
+  belongs_to :device
+  
   # Return true if receives certain alerts more than 3 times in 10 minites.
   def self.happen?
     p_thresh = 0

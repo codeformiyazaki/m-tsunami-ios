@@ -16,10 +16,16 @@ class QuakesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create quake" do
+    # id not found
+    post quakes_url(format: :json), params: { quake: { device_id: -1, elapsed: @quake.elapsed, p: @quake.p, s: @quake.s } }
+    assert_response :unprocessable_entity
+    # token not match
+    post quakes_url(format: :json), params: { quake: { device_id: @quake.device_id, elapsed: @quake.elapsed, p: @quake.p, s: @quake.s } }
+    assert_response :unprocessable_entity
     assert_difference('Quake.count') do
-      post quakes_url, params: { quake: { device_id: @quake.device_id, elapsed: @quake.elapsed, p: @quake.p, s: @quake.s } }
+      token = @quake.device.token
+      post quakes_url(format: :json), params: { quake: { device_id: @quake.device_id, elapsed: @quake.elapsed, p: @quake.p, s: @quake.s }, token: token }
     end
-
     assert_redirected_to quake_url(Quake.last)
   end
 
