@@ -31,7 +31,7 @@ class QuakesController < ApplicationController
     respond_to do |format|
       if d.nil?
         format.json { render json: "device not found. id=#{@quake.device_id}", status: :unprocessable_entity }
-      elsif d.token == params[:token]
+      elsif d.token != params[:token]
         format.json { render json: "token not match. id=#{@quake.device_id}", status: :unprocessable_entity }
       elsif @quake.save
         format.html { redirect_to @quake, notice: 'Quake was successfully created.' }
