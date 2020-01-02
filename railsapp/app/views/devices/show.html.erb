@@ -15,5 +15,12 @@
   <%= @device.active %>
 </p>
 
+<pre>
+M_TSUNAMI_DEVICE_ID=<%= @device.id %>
+M_TSUNAMI_TOKEN=<%= @device.token %>
+M_TSUNAMI_THRESH=30
+@reboot   python3 motion.py
+</pre>
+
 <%= link_to 'Edit', edit_device_path(@device) %> |
 <%= link_to 'Back', devices_path %>
