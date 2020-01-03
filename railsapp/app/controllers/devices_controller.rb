@@ -1,6 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, except: [:create]
+  before_action :authenticate, except: [:create, :hook]
 
   # GET /devices
   # GET /devices.json
