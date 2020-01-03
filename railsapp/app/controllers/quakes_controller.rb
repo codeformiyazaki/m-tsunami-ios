@@ -69,7 +69,6 @@ class QuakesController < ApplicationController
   end
 
   def test_quake
-    # TODO 最終的には実際の地震を起こした感じでテストしたい
     begin
       send_notify("test")
     rescue => e
@@ -79,11 +78,12 @@ class QuakesController < ApplicationController
 
   private
     def send_notify(purpose="test")
+      message = "地震発生を検知しました！"
+      logger.debug("Messega will be sent: "+message)
       require './lib/tasks/notifier.rb'
       n = Notifier.new
       n.dry_run = false
       @tokens = ApnToken.where("purpose = '#{purpose}'")
-      message = "地震発生を検知しました！"
       n.push(@tokens,message)
     end
 
