@@ -9,6 +9,7 @@
       <th>Desc</th>
       <th>Active</th>
       <th>ID &amp; Token</th>
+      <th>Updated at</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= device.desc %></td>
         <td><%= device.active %></td>
         <td><code>id=<%= device.id %>&amp;token=<%= device.token %></code></td>
+        <td title="created: <%= device.created_at.in_time_zone("Tokyo") %>"><%= device.updated_at.in_time_zone("Tokyo") %></td>
         <td><%= link_to 'Show', device %></td>
         <td><%= link_to 'Edit', edit_device_path(device) %></td>
         <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -19,7 +19,8 @@
 M_TSUNAMI_DEVICE_ID=<%= @device.id %>
 M_TSUNAMI_TOKEN=<%= @device.token %>
 M_TSUNAMI_THRESH=30
-@reboot   python3 motion.py
+03 * * * * python3 m-tsunami-ping.py
+@reboot    python3 m-tsunami-motion.py
 </pre>
 
 <%= link_to 'Edit', edit_device_path(@device) %> |

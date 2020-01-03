@@ -62,6 +62,19 @@ class DevicesController < ApplicationController
     end
   end
 
+  def hook
+    d = Device.find_by(id: params[:device_id])
+    if d.nil?
+      render plain: "Device not found. device_id=&token=", status: 404
+    elsif d.token != params[:token]
+      render plain: "Token not match. device_id=&token=", status: 404
+    else
+      d.updated_at = Time.now
+      d.save
+      render plain: "Updated.", status: 200
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_device
