@@ -7,12 +7,13 @@ end
 
 desc 'Send files to raspberrypi.local.'
 task :deploy do
-  exec("scp motion*.py pi@raspberrypi.local:")
+  exec("scp m-tsunami-*.py pi@raspberrypi.local:")
 end
 
 desc 'Send files to local env.'
 task :raspi09 do
-  exec("scp motion*.py pi@raspi09.local:")
+  exec("scp m-tsunami-*.py pi@raspi09.local:")
+  puts "Next: Set cron along with m-tsunami admin page."
 end
 
 task :default => :deploy
