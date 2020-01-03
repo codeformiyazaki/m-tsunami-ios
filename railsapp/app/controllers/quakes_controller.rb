@@ -79,7 +79,6 @@ class QuakesController < ApplicationController
   private
     def send_notify(purpose="test")
       message = "地震発生を検知しました！"
-      logger.debug("Messega will be sent: "+message)
       require './lib/tasks/notifier.rb'
       n = Notifier.new
       n.dry_run = false
