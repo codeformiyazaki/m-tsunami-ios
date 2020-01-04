@@ -29,16 +29,19 @@ final class PhotoModel {
         }
     }
 
-    func fetchPhotos(completion: @escaping(Result<[Photo], Error>) -> Void) {
-        db.collection("photos")
+    func fetchPhotos(userId: String?, completion: @escaping(Result<[Photo], Error>) -> Void) {
+        var query = db.collection("photos")
             .order(by: "createdAt", descending: true)
             .limit(to: 100)
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    completion(.failure(error)); return
-                }
-                let photos = (snapshot?.documents ?? []).map { Photo(data: $0.data()) }
-                completion(.success(photos))
+        if let userId = userId {
+            query = query.whereField("userId", isEqualTo: userId)
+        }
+        query.getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(error)); return
+            }
+            let photos = (snapshot?.documents ?? []).map { Photo(data: $0.data()) }
+            completion(.success(photos))
         }
     }
 
