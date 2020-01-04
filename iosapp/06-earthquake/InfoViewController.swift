@@ -16,6 +16,10 @@ class InfoViewController: UIViewController{
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
     }()
 
+    @IBAction func didCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
     @IBAction func githubPushed(_ sender: Any) {
         let url = URL(string: "https://github.com/code4miyazaki/m-tsunami-ios")!
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
