@@ -28,6 +28,7 @@ class InfoViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let apn = UserDefaults.standard.string(forKey: "apn") ?? ""
-        versionLabel.text = "Version \(appVersion) \(apn.prefix(6))"
+        let uid = UserManager.sharedInstance.userId ?? ""
+        versionLabel.text = "Version \(appVersion) \(apn.prefix(6)), \(uid)"
     }
 }
