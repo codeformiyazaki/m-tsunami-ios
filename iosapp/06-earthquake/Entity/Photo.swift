@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 struct Photo {
 
+    var id: String
     var userId: String
     var imagePath: String
     var comment: String
@@ -18,7 +19,8 @@ struct Photo {
     var createdAt: Timestamp
     var updatedAt: Timestamp
 
-    init(data: [String: Any]) {
+    init(id: String, data: [String: Any]) {
+        self.id   = id
         userId    = data["userId"] as? String ?? ""
         imagePath = data["imagePath"] as? String ?? ""
         comment   = data["comment"] as? String ?? ""

@@ -63,7 +63,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
 
         let photo = photos[indexPath.row]
 
-        cell.commentLabel.text = photo.imagePath
+        cell.commentLabel.text = photo.comment
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -86,5 +86,24 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let photo = photos[indexPath.row]
+            PhotoModel().deletePhoto(id: photo.id) { [weak self] result in
+                switch result {
+                case .success:
+                    self?.photos.remove(at: indexPath.row)
+                    self?.tableView.reloadData()
+                case .failure(let error):
+                    print("error!", error.localizedDescription)
+                }
+            }
+        }
     }
 }
