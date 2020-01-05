@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import SVProgressHUD
 
 class CameraViewController: UIViewController {
@@ -37,11 +38,12 @@ class CameraViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        didSelectCamera()
+        reverseGeocodeLocation()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        didSelectCamera()
     }
 
     @objc private func didTapPreview() {
@@ -58,6 +60,18 @@ class CameraViewController: UIViewController {
     func updateButtonEnabled() {
         clearButtonItem.isEnabled = previewImageView.image != nil || !commentTextView.text.isEmpty
         postButtonItem.isEnabled = previewImageView.image != nil
+    }
+
+    func reverseGeocodeLocation() {
+        let location = CLLocation(latitude: UserManager.sharedInstance.latitude,
+                                  longitude: UserManager.sharedInstance.longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+            guard let placemark = placemarks?.first,
+                let name = placemark.name,
+                let locality = placemark.locality,
+                error == nil else { return }
+            self?.commentTextView.text = "\(locality)\(name) 付近にて撮影。"
+        }
     }
 
     func didSelectCamera() {
