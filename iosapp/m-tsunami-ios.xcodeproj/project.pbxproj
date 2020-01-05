@@ -33,6 +33,8 @@
 		2195E44F23BB78AE00790DF8 /* PhotoCalloutAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195E44E23BB78AE00790DF8 /* PhotoCalloutAccessoryView.swift */; };
 		2195E45123BB78CF00790DF8 /* PhotoCalloutAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2195E45023BB78CF00790DF8 /* PhotoCalloutAccessoryView.xib */; };
 		2195E45723C0DE0000790DF8 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195E45623C0DE0000790DF8 /* MyPageViewController.swift */; };
+		2195E45A23C2114400790DF8 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195E45823C2114400790DF8 /* PhotoTableViewCell.swift */; };
+		2195E45B23C2114400790DF8 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2195E45923C2114400790DF8 /* PhotoTableViewCell.xib */; };
 		21F86B2F23689EFB00BBEAF4 /* IconSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */; };
 		31ABA3F16A2989481CC3EED2 /* Pods_06_earthquakeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF58EDD46D8B0880544801E /* Pods_06_earthquakeTests.framework */; };
 		D88986D03DA3D521BB4DF19F /* Pods_06_earthquakeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD9686BF34F597EF03076CF /* Pods_06_earthquakeUITests.framework */; };
@@ -90,6 +92,8 @@
 		2195E44E23BB78AE00790DF8 /* PhotoCalloutAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoCalloutAccessoryView.swift; path = View/PhotoCalloutAccessoryView.swift; sourceTree = "<group>"; };
 		2195E45023BB78CF00790DF8 /* PhotoCalloutAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCalloutAccessoryView.xib; path = View/PhotoCalloutAccessoryView.xib; sourceTree = "<group>"; };
 		2195E45623C0DE0000790DF8 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		2195E45823C2114400790DF8 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoTableViewCell.swift; path = View/PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		2195E45923C2114400790DF8 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoTableViewCell.xib; path = View/PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		21F86B2E23689EFB00BBEAF4 /* IconSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSettingsRepository.swift; sourceTree = "<group>"; };
 		263ADEFEA0C6436DE9D436C4 /* Pods-06-earthquakeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06-earthquakeUITests.release.xcconfig"; path = "Target Support Files/Pods-06-earthquakeUITests/Pods-06-earthquakeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2BC33355604A389628E0DA61 /* Pods-06-earthquakeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06-earthquakeUITests.debug.xcconfig"; path = "Target Support Files/Pods-06-earthquakeUITests/Pods-06-earthquakeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				2195E44E23BB78AE00790DF8 /* PhotoCalloutAccessoryView.swift */,
 				2195E45023BB78CF00790DF8 /* PhotoCalloutAccessoryView.xib */,
 				2195E45623C0DE0000790DF8 /* MyPageViewController.swift */,
+				2195E45823C2114400790DF8 /* PhotoTableViewCell.swift */,
+				2195E45923C2114400790DF8 /* PhotoTableViewCell.xib */,
 			);
 			path = "06-earthquake";
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				13C4BDAA21F47C1D00060742 /* Assets.xcassets in Resources */,
 				13F07E0523B4C4A10065BEAF /* shelters.csv in Resources */,
 				13C4BDA821F47C1A00060742 /* Main.storyboard in Resources */,
+				2195E45B23C2114400790DF8 /* PhotoTableViewCell.xib in Resources */,
 				13C4867D22D0722800536310 /* webcams_locations.csv in Resources */,
 				211BD74923B653C90062C7CE /* GoogleService-Info.plist in Resources */,
 				2195E45123BB78CF00790DF8 /* PhotoCalloutAccessoryView.xib in Resources */,
@@ -475,6 +482,7 @@
 				2195E45723C0DE0000790DF8 /* MyPageViewController.swift in Sources */,
 				13C4BDA521F47C1A00060742 /* HinataViewController.swift in Sources */,
 				211BD74B23B78CC50062C7CE /* TabBarController.swift in Sources */,
+				2195E45A23C2114400790DF8 /* PhotoTableViewCell.swift in Sources */,
 				13C4BDA121F47C1A00060742 /* AppDelegate.swift in Sources */,
 				13C4BDA321F47C1A00060742 /* AlertsViewController.swift in Sources */,
 				1367365722BB99C8004E6E0D /* InfoViewController.swift in Sources */,
