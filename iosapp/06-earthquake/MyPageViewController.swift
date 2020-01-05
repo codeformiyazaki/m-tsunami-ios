@@ -19,6 +19,8 @@ class MyPageViewController: UIViewController {
         }
     }
 
+    var imageCache: [String: UIImage] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
