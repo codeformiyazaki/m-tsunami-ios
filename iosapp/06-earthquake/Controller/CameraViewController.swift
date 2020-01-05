@@ -34,6 +34,8 @@ class CameraViewController: UIViewController {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapPreview))
         recognizer.isEnabled = true
         previewImageView.addGestureRecognizer(recognizer)
+
+        didSelectCamera()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +45,6 @@ class CameraViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        didSelectCamera()
     }
 
     @objc private func didTapPreview() {
