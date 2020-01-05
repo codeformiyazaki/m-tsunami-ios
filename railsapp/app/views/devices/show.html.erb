@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @device.desc %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @device.active %>
+</p>
+
+<pre>
+M_TSUNAMI_DEVICE_ID=<%= @device.id %>
+M_TSUNAMI_TOKEN=<%= @device.token %>
+M_TSUNAMI_THRESH=30
+03 * * * * python3 m-tsunami-ping.py
+@reboot    python3 m-tsunami-motion.py
+</pre>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

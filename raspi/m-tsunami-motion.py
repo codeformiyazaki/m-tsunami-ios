@@ -4,13 +4,16 @@ import math, os, time, requests, json
 import numpy as np
 from envirophat import motion, leds
 
+DEVICE_ID = os.environ.get("M_TSUNAMI_DEVICE_ID")
+TOKEN = os.environ.get("M_TSUNAMI_TOKEN")
+
 # For debug use:
 SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK")
 SLACK_THRESH = 30.0
 
 # RAILS_WEBHOOK = "https://desolate-headland-83158.herokuapp.com/quakes.json"
 RAILS_WEBHOOK = "https://m-tsunami.herokuapp.com/quakes.json"
-RAILS_THRESH = 30.0
+RAILS_THRESH = int(os.environ.get("M_TSUNAMI_THRESH") or "30")
 
 DETECT_THRESH = 0.01
 DETECT_INTERVAL = 0.01
@@ -59,6 +62,12 @@ def strength(data,l):
 
 
 def main():
+    if DEVICE_ID == None:
+        print("M_TSUNAMI_DEVICE_ID is not set.")
+        return
+    if TOKEN == None:
+        print("M_TSUNAMI_TOKEN is not set.")
+        return
     print("Press Ctrl+C to exit.")
 
     data = [[],[],[]]
@@ -96,7 +105,7 @@ def main():
                 started_at = None
                 leds.off()
                 if elapsed > RAILS_THRESH:
-                    q = {'quake[elapsed]': elapsed, 'quake[p]': sp, 'quake[s]': ss, 'quake[device_id]': 0}
+                    q = {'quake[elapsed]': elapsed, 'quake[p]': sp, 'quake[s]': ss, 'quake[device_id]': DEVICE_ID, 'token': TOKEN}
                     r = requests.post(RAILS_WEBHOOK, data = q)
                     print(r)
                 if SLACK_WEBHOOK and elapsed > SLACK_THRESH:

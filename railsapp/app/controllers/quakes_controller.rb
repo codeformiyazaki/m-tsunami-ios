@@ -27,9 +27,13 @@ class QuakesController < ApplicationController
   # POST /quakes.json
   def create
     @quake = Quake.new(quake_params)
-
+    d = @quake.device
     respond_to do |format|
-      if @quake.save
+      if d.nil?
+        format.json { render json: "device not found. id=#{@quake.device_id}", status: :unprocessable_entity }
+      elsif d.token != params[:token]
+        format.json { render json: "token not match. id=#{@quake.device_id}", status: :unprocessable_entity }
+      elsif @quake.save
         format.html { redirect_to @quake, notice: 'Quake was successfully created.' }
         format.json { render :show, status: :created, location: @quake }
         send_notify if Quake.happen?
@@ -65,7 +69,6 @@ class QuakesController < ApplicationController
   end
 
   def test_quake
-    # TODO 最終的には実際の地震を起こした感じでテストしたい
     begin
       send_notify("test")
     rescue => e
@@ -74,12 +77,12 @@ class QuakesController < ApplicationController
   end
 
   private
-    def send_notify(purpose="default")
+    def send_notify(purpose="test")
+      message = "地震発生を検知しました！"
       require './lib/tasks/notifier.rb'
       n = Notifier.new
       n.dry_run = false
       @tokens = ApnToken.where("purpose = '#{purpose}'")
-      message = "地震発生を検知しました！"
       n.push(@tokens,message)
     end
 

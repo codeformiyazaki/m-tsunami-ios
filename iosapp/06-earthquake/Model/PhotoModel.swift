@@ -45,10 +45,11 @@ final class PhotoModel {
         }
     }
 
-    func addPhoto(imagePath: String, latitude: Double, longitude: Double, completion: @escaping (Result<Void, Error>) -> Void) {
+    func addPhoto(imagePath: String, comment: String?, latitude: Double, longitude: Double, completion: @escaping (Result<Void, Error>) -> Void) {
         guard let userId = UserManager.sharedInstance.userId else { return }
 
         let data = ["imagePath": imagePath,
+                    "comment": comment ?? "",
                     "location": GeoPoint(latitude: latitude, longitude: longitude),
                     "userId": userId,
                     "createdAt": FieldValue.serverTimestamp(),

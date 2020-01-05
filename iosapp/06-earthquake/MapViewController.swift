@@ -14,11 +14,13 @@ class CustomAnnotation : MKPointAnnotation {
     let name: String
     let color: UIColor
     var imagePath: String?
+    var comment: String?
 
-    init(name: String, color: UIColor, imagePath: String? = nil) {
+    init(name: String, color: UIColor, imagePath: String? = nil, comment: String? = nil) {
         self.name = name
         self.color = color
         self.imagePath = imagePath
+        self.comment = comment
         super.init()
     }
 }
@@ -138,6 +140,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 dateFormatter.dateFormat = "yyyy/M/d HH:mm:ss"
                 annotation.title = dateFormatter.string(from: photo.createdAt.dateValue())
                 annotation.imagePath = photo.imagePath
+                annotation.comment = photo.comment
                 self?.mapView.addAnnotation(annotation)
             case .failure(let error):
                 print("error!", error.localizedDescription)
@@ -196,7 +199,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 switch result {
                 case .success(let image):
                     iv.photoImageView.image = image
-                    iv.userLabel.text = "ID: " + (UserManager.sharedInstance.userId ?? "")
+                    iv.userLabel.text = a.comment
                 case .failure(let error):
                     print("error!", error.localizedDescription)
                     SVProgressHUD.showError(withStatus: "Network Error!")
