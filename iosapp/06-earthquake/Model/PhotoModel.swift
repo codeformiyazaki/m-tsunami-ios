@@ -22,23 +22,26 @@ final class PhotoModel {
             }
             snapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
-                    let photo = Photo(data: diff.document.data())
+                    let photo = Photo(id: diff.document.documentID, data: diff.document.data())
                     completion(.success(photo))
                 }
             }
         }
     }
 
-    func fetchPhotos(completion: @escaping(Result<[Photo], Error>) -> Void) {
-        db.collection("photos")
+    func fetchPhotos(userId: String?, completion: @escaping(Result<[Photo], Error>) -> Void) {
+        var query = db.collection("photos")
             .order(by: "createdAt", descending: true)
             .limit(to: 100)
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    completion(.failure(error)); return
-                }
-                let photos = (snapshot?.documents ?? []).map { Photo(data: $0.data()) }
-                completion(.success(photos))
+        if let userId = userId {
+            query = query.whereField("userId", isEqualTo: userId)
+        }
+        query.getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(error)); return
+            }
+            let photos = (snapshot?.documents ?? []).map { Photo(id: $0.documentID, data: $0.data()) }
+            completion(.success(photos))
         }
     }
 
@@ -56,6 +59,17 @@ final class PhotoModel {
                 if let error = error {
                     completion(.failure(error))
                     return
+                }
+                completion(.success(()))
+        }
+    }
+
+    func deletePhoto(id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        db.collection("photos")
+            .document(id)
+            .delete { error in
+                if let error = error {
+                    completion(.failure(error)); return
                 }
                 completion(.success(()))
         }
