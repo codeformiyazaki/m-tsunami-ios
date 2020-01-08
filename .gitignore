@@ -2,4 +2,4 @@
 *.pyc
 xcuserdata
 build
-/iosapp/06-earthquake/GoogleService-Info.plist
+GoogleService-Info.plist
