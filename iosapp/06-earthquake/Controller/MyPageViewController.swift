@@ -26,6 +26,10 @@ class MyPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PhotoTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         loadData()
     }
 
