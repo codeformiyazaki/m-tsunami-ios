@@ -2,4 +2,6 @@
 *.pyc
 xcuserdata
 build
-GoogleService-Info.plist
+
+# Should not be pushed to the remote, but dummy file is needed to build on GitHub.
+# GoogleService-Info.plist

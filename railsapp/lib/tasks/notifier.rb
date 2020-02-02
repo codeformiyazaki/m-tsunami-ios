@@ -29,6 +29,7 @@ class Notifier
       notification       = Apnotic::Notification.new(t.token)
       notification.topic = "net.lmlab.m-tsunami"
       notification.alert = message
+      notification.sound = "default"
 
       push = connection.prepare_push(notification)
       push.on(:response) do |response|
