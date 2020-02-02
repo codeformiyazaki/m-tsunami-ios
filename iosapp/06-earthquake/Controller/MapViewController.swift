@@ -56,7 +56,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                                   "building" : true,
                                                   "shelter" : true,
                                                   "site_and_shelter" : true,
-                                                  "webcams" : true])
+                                                  "webcam" : true])
 
         lm.delegate = self
 
@@ -82,6 +82,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
 
     private func loadData() {
+        let green = UIColor(red: 62.0 / 255, green: 132.0 / 255, blue: 105.0 / 255, alpha: 1.0)
         let TYPE2NAME = ["指定緊急避難場所（地震発生時の一時避難場所）":"site4earthquake",
                          "指定緊急避難場所（津波発生時の一時避難場所）":"site4tsunami",
                          "指定緊急避難場所（津波避難ビル）":"building",
@@ -90,8 +91,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let TYPE2COLOR = ["指定緊急避難場所（地震発生時の一時避難場所）":UIColor.orange,
                           "指定緊急避難場所（津波発生時の一時避難場所）":UIColor.orange,
                           "指定緊急避難場所（津波避難ビル）":UIColor.gray,
-                          "指定避難所":UIColor.orange,
-                          "指定避難所兼指定緊急避難場所":UIColor.orange]
+                          "指定避難所":green,
+                          "指定避難所兼指定緊急避難場所":green]
 
         shelters = loadCSV(name: "shelters")
         for line in shelters {
@@ -112,7 +113,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
 
         // ウェブカメラ
-        if iconSettingsRepository.fetch(key: "webcams") {
+        if iconSettingsRepository.fetch(key: "webcam") {
             webcams = loadCSV(name: "webcams_locations")
             for line in webcams {
                 if line == "" { continue }
