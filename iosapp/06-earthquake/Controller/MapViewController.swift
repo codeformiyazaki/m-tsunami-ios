@@ -83,6 +83,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     private func loadData() {
         let green = UIColor(red: 62.0 / 255, green: 132.0 / 255, blue: 105.0 / 255, alpha: 1.0)
+        let blue = UIColor(red: 51.0 / 255 ,green:51.0 / 255, blue:255.0 / 255, alpha: 1.0)
         let TYPE2NAME = ["指定緊急避難場所（地震発生時の一時避難場所）":"site4earthquake",
                          "指定緊急避難場所（津波発生時の一時避難場所）":"site4tsunami",
                          "指定緊急避難場所（津波避難ビル）":"building",
@@ -118,7 +119,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             for line in webcams {
                 if line == "" { continue }
                 let row = line.components(separatedBy: ",")
-                let pa = CustomAnnotation(name: "webcam", color: UIColor.blue)
+                let pa = CustomAnnotation(name: "webcam", color: blue)
                 let lng = Double(row[2]) ?? 0
                 let lat = Double(row[3]) ?? 0
 
