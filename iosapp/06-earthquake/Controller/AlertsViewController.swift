@@ -7,91 +7,19 @@
 //
 
 import UIKit
+import WebKit
 
-class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDelegate {
+class AlertsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        guard let url = URL(string: "https://www.data.jma.go.jp/developer/xml/feed/eqvol.xml") else {
+        guard let url = URL(string: "https://www.city.miyazaki.miyazaki.jp/") else {
             return
         }
-        guard let parser = XMLParser(contentsOf: url as URL) else {
-            return
-        }
-        parser.delegate = self
-        parser.parse()
-    }
-
-    // --
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contents.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.imageView?.image = UIImage(named: icons[indexPath.row])
-        cell.textLabel?.text = contents[indexPath.row]
-        cell.detailTextLabel?.text = updates[indexPath.row]
-        return cell
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let adc = segue.destination as? AlertDetailController else { return }
-        guard let row = tableView.indexPathForSelectedRow else { return }
-        adc.loadXml(url: links[row.row])
-    }
-
-    // --
-    var currentElement :String = ""
-    var shouldAdd = false
-    var contents :[String] = []
-    var updates :[String] = []
-    var icons :[String] = []
-    var links :[String] = []
-
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        currentElement = elementName
-        if (currentElement == "link") {
-            guard let href = attributeDict["href"] else { return }
-            print(href)
-            if shouldAdd {
-                links += [href]
-            }
-        }
-    }
-
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        let s = string.trimmingCharacters(in: .newlines)
-        if (s.isEmpty) { return }
-        if (currentElement == "content") {
-            if shouldAdd {
-                let ss = s.components(separatedBy: "】")
-                let v = ss[ss.count - 1].replacingOccurrences(of: "　", with: "")
-                let vv = v.replacingOccurrences(of: "\n", with: " ")
-                contents += [vv]
-            }
-        }
-        if (currentElement == "updated") {
-            if shouldAdd {
-                updates += [s]
-            }
-        }
-        if (currentElement == "title") {
-            shouldAdd = false
-            if s.starts(with: "噴火") {
-                icons += ["volcano"]
-                shouldAdd = true
-            } else if s.starts(with: "震源") {
-                icons += ["earthquake"]
-                shouldAdd = true
-            }
-        }
-    }
-
-    func parserDidEndDocument(_ parser: XMLParser) {
-        tableView.reloadData()
+        print("loaded!")
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
 }

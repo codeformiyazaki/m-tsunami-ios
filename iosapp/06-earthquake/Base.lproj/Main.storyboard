@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Alerts-->
+        <scene sceneID="RpW-Lv-oPl">
+            <objects>
+                <viewController id="4FY-DX-UMD" customClass="AlertsViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AaE-HD-GEQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twA-Sg-pHO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="twA-Sg-pHO" firstAttribute="bottom" secondItem="rf8-CE-hfR" secondAttribute="bottom" id="NUS-bU-eNW"/>
+                            <constraint firstItem="twA-Sg-pHO" firstAttribute="trailing" secondItem="rf8-CE-hfR" secondAttribute="trailing" id="YGs-ia-90s"/>
+                            <constraint firstItem="twA-Sg-pHO" firstAttribute="leading" secondItem="rf8-CE-hfR" secondAttribute="leading" id="s1j-Wa-V2D"/>
+                            <constraint firstItem="twA-Sg-pHO" firstAttribute="top" secondItem="rf8-CE-hfR" secondAttribute="top" id="zpl-sX-Trd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rf8-CE-hfR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alerts" image="light-beacon" id="QCu-Rm-Zb5"/>
+                    <connections>
+                        <outlet property="webView" destination="twA-Sg-pHO" id="TN4-0I-MmV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7hd-K4-XxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210" y="-518"/>
+        </scene>
         <!--Alerts-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -668,7 +703,7 @@
                         <segue destination="weR-rN-Xxu" kind="relationship" relationship="viewControllers" id="sL1-Q7-agQ"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="h2t-QM-7uh" kind="relationship" relationship="viewControllers" id="2Bs-hv-yoz"/>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="4FY-DX-UMD" kind="relationship" relationship="viewControllers" id="nvP-Zk-fjY"/>
                         <segue destination="Qh5-cb-d1B" kind="relationship" relationship="viewControllers" id="Wrp-Rd-WSq"/>
                     </connections>
                 </tabBarController>
