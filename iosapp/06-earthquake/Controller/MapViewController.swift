@@ -48,14 +48,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         // 指定緊急避難場所（津波発生時の一時避難場所） > sites4tsunami
         // 指定緊急避難場所（津波避難ビル） > buildings
         // 指定避難所 > shelters
-        // 指定避難所兼指定緊急避難場所 > site_and_shelters
+        // 指定避難所兼指定緊急避難場所（津波） > site_and_shelters4tsunami
+        // 指定避難所兼指定緊急避難場所（洪水） > site_and_shelters4flood
 
         // 設定のデフォルト値をセット
         UserDefaults.standard.register(defaults: ["site4earthquake" : true,
                                                   "site4tsunami" : true,
                                                   "building" : true,
                                                   "shelter" : true,
-                                                  "site_and_shelter" : true,
+                                                  "site_and_shelters4tsunami" : true,
+                                                  "site_and_shelters4flood" : true,
                                                   "webcam" : true])
 
         lm.delegate = self
@@ -88,12 +90,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                          "指定緊急避難場所（津波発生時の一時避難場所）":"site4tsunami",
                          "指定緊急避難場所（津波避難ビル）":"building",
                          "指定避難所":"shelter",
-                         "指定避難所兼指定緊急避難場所":"site_and_shelter"]
+                         "指定避難所兼指定緊急避難場所（津波）":"site_and_shelter4tsunami",
+                         "指定避難所兼指定緊急避難場所（洪水）":"site_and_shelter4flood"]
         let TYPE2COLOR = ["指定緊急避難場所（地震発生時の一時避難場所）":UIColor.orange,
                           "指定緊急避難場所（津波発生時の一時避難場所）":UIColor.orange,
                           "指定緊急避難場所（津波避難ビル）":UIColor.gray,
                           "指定避難所":green,
-                          "指定避難所兼指定緊急避難場所":green]
+                          "指定避難所兼指定緊急避難場所（津波）":green,
+                          "指定避難所兼指定緊急避難場所（洪水）":blue]
 
         shelters = loadCSV(name: "shelters")
         for line in shelters {
