@@ -20,8 +20,22 @@
     "tag": "2.2.6"
   },
   "description": "SVProgressHUD is a clean and easy-to-use HUD meant to display the progress of an ongoing task on iOS and tvOS. The success and error icons are from Freepik from Flaticon and are licensed under Creative Commons BY 3.0.",
-  "source_files": "SVProgressHUD/*.{h,m}",
   "frameworks": "QuartzCore",
-  "resources": "SVProgressHUD/SVProgressHUD.bundle",
-  "requires_arc": true
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SVProgressHUD/*.{h,m}",
+      "resources": "SVProgressHUD/SVProgressHUD.bundle"
+    },
+    {
+      "name": "AppExtension",
+      "source_files": "SVProgressHUD/*.{h,m}",
+      "resources": "SVProgressHUD/SVProgressHUD.bundle",
+      "pod_target_xcconfig": {
+        "GCC_PREPROCESSOR_DEFINITIONS": "SV_APP_EXTENSIONS=1"
+      }
+    }
+  ]
 }
