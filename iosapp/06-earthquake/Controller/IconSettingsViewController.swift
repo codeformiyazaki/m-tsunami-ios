@@ -17,9 +17,10 @@ class IconSettingsViewController: UITableViewController {
                 "site4tsunami",
                 "building",
                 "shelter",
-                "site_and_shelter",
+                "site_and_shelter4tsunami",
+                "site_and_shelter4flood",
                 "webcam"]
-    let labels = ["地震発生時の一時避難所","津波発生時の一時避難所","津波避難ビル","指定避難所","指定避難所兼指定緊急避難場所","海岸線を監視するウェブカメラ"]
+    let labels = ["地震発生時の一時避難所","津波発生時の一時避難所","津波避難ビル","指定避難所","指定避難所兼指定緊急避難場所（津波）","指定避難所兼指定緊急避難場所（洪水）","海岸線を監視するウェブカメラ"]
 
     weak var delegate: IconSettingsViewControllerDelegate?
 
