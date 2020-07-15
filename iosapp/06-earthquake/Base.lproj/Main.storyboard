@@ -11,7 +11,7 @@
         <!--Alerts-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="AlertsViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="AlertsViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,12 +97,12 @@
         <!--GIS-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="HinataViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="HinataViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宮崎津波防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-Rf-Xgt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="みやざき防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-Rf-Xgt">
                                 <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="jHf-Rh-zgY"/>
@@ -144,12 +144,12 @@
         <!--Map-->
         <scene sceneID="xcG-NB-sDn">
             <objects>
-                <viewController id="weR-rN-Xxu" customClass="MapViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="weR-rN-Xxu" customClass="MapViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ooe-ha-QQl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宮崎津波防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B46-W0-6gW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="みやざき防災" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B46-W0-6gW">
                                 <rect key="frame" x="16" y="0.0" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="VHR-Wm-QDS"/>
@@ -218,7 +218,7 @@
         <!--Icon Settings View Controller-->
         <scene sceneID="dpg-t1-3jA">
             <objects>
-                <tableViewController id="v19-a3-j0z" customClass="IconSettingsViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="v19-a3-j0z" customClass="IconSettingsViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WtW-jK-iVp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,7 +304,7 @@
         <!--Iinami View Controller-->
         <scene sceneID="sk3-8r-B6Y">
             <objects>
-                <viewController id="T8M-wF-XNg" customClass="IinamiViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T8M-wF-XNg" customClass="IinamiViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T3X-Qz-dDk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,7 +381,7 @@
         <!--写真投稿-->
         <scene sceneID="SX2-LB-07G">
             <objects>
-                <viewController restorationIdentifier="Camera" id="XJL-cv-0os" customClass="CameraViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Camera" id="XJL-cv-0os" customClass="CameraViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8OD-cI-xbh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -456,7 +456,7 @@
         <!--Info View Controller-->
         <scene sceneID="ge1-2X-Yfy">
             <objects>
-                <viewController id="tNz-z9-dJh" customClass="InfoViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tNz-z9-dJh" customClass="InfoViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hgu-Fr-sUW" customClass="InfoV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -542,7 +542,7 @@
         <!--マイページ-->
         <scene sceneID="fyT-xb-3g7">
             <objects>
-                <viewController id="yFM-sy-Ymf" customClass="MyPageViewController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yFM-sy-Ymf" customClass="MyPageViewController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1d2-Cm-JQT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -581,7 +581,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="宮崎津波防災" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" customModule="みやざき防災" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

@@ -64,7 +64,7 @@
 		13BC4FC522588FF3003C240D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		13BC4FC722589396003C240D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		13C4867C22D0722800536310 /* webcams_locations.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = webcams_locations.csv; sourceTree = "<group>"; };
-		13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宮崎津波防災.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C4BD9D21F47C1A00060742 /* みやざき防災.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "みやざき防災.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4BDA021F47C1A00060742 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13C4BDA721F47C1A00060742 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13C4BDA921F47C1D00060742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		13C4BD9E21F47C1A00060742 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */,
+				13C4BD9D21F47C1A00060742 /* みやざき防災.app */,
 				13C4BDB321F47C1E00060742 /* 06-earthquakeTests.xctest */,
 				13C4BDBE21F47C1E00060742 /* 06-earthquakeUITests.xctest */,
 			);
@@ -316,7 +316,7 @@
 			);
 			name = "06-earthquake";
 			productName = "06-earthquake";
-			productReference = 13C4BD9D21F47C1A00060742 /* 宮崎津波防災.app */;
+			productReference = 13C4BD9D21F47C1A00060742 /* みやざき防災.app */;
 			productType = "com.apple.product-type.application";
 		};
 		13C4BDB221F47C1E00060742 /* 06-earthquakeTests */ = {
@@ -757,7 +757,7 @@
 				);
 				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
-				PRODUCT_NAME = "宮崎津波防災";
+				PRODUCT_NAME = "みやざき防災";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -782,7 +782,7 @@
 				);
 				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.lmlab.m-tsunami";
-				PRODUCT_NAME = "宮崎津波防災";
+				PRODUCT_NAME = "みやざき防災";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
