@@ -8,90 +8,38 @@
 
 import UIKit
 
-class AlertsViewController: UIViewController, UITableViewDataSource, XMLParserDelegate {
+class AlertsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    let data = [["miyazaki.city","宮崎市役所","災害発生時にはモードが切り替わります","https://www.city.miyazaki.miyazaki.jp/"],
+                ["miyazaki.pref","宮崎県","県全域に関する情報","https://www.pref.miyazaki.lg.jp/"],
+                ["jma","気象庁","地震速報や台風の位置情報など","http://www.jma.go.jp/"]]
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        guard let url = URL(string: "https://www.data.jma.go.jp/developer/xml/feed/eqvol.xml") else {
-            return
-        }
-        guard let parser = XMLParser(contentsOf: url as URL) else {
-            return
-        }
-        parser.delegate = self
-        parser.parse()
     }
 
     // --
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contents.count
+        return data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.imageView?.image = UIImage(named: icons[indexPath.row])
-        cell.textLabel?.text = contents[indexPath.row]
-        cell.detailTextLabel?.text = updates[indexPath.row]
+        guard let row:[String] = data[indexPath.row] else { return cell }
+        cell.imageView?.image = UIImage(named: row[0]) // 64x64 favicon
+        cell.textLabel?.text = row[1]
+        cell.detailTextLabel?.text = row[2]
         return cell
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let adc = segue.destination as? AlertDetailController else { return }
-        guard let row = tableView.indexPathForSelectedRow else { return }
-        adc.loadXml(url: links[row.row])
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "防災情報が得られるサイト"
     }
 
-    // --
-    var currentElement :String = ""
-    var shouldAdd = false
-    var contents :[String] = []
-    var updates :[String] = []
-    var icons :[String] = []
-    var links :[String] = []
-
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        currentElement = elementName
-        if (currentElement == "link") {
-            guard let href = attributeDict["href"] else { return }
-            print(href)
-            if shouldAdd {
-                links += [href]
-            }
-        }
-    }
-
-    func parser(_ parser: XMLParser, foundCharacters string: String) {
-        let s = string.trimmingCharacters(in: .newlines)
-        if (s.isEmpty) { return }
-        if (currentElement == "content") {
-            if shouldAdd {
-                let ss = s.components(separatedBy: "】")
-                let v = ss[ss.count - 1].replacingOccurrences(of: "　", with: "")
-                let vv = v.replacingOccurrences(of: "\n", with: " ")
-                contents += [vv]
-            }
-        }
-        if (currentElement == "updated") {
-            if shouldAdd {
-                updates += [s]
-            }
-        }
-        if (currentElement == "title") {
-            shouldAdd = false
-            if s.starts(with: "噴火") {
-                icons += ["volcano"]
-                shouldAdd = true
-            } else if s.starts(with: "震源") {
-                icons += ["earthquake"]
-                shouldAdd = true
-            }
-        }
-    }
-
-    func parserDidEndDocument(_ parser: XMLParser) {
-        tableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let row:[String] = data[indexPath.row] else { return }
+        guard let url:URL = URL(string: row[3]) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
