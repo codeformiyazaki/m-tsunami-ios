@@ -26,7 +26,7 @@ class AlertsViewController: UIViewController, UITableViewDataSource, UITableView
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        guard let row:[String] = data[indexPath.row] else { return cell }
+        let row:[String] = data[indexPath.row]
         cell.imageView?.image = UIImage(named: row[0]) // 64x64 favicon
         cell.textLabel?.text = row[1]
         cell.detailTextLabel?.text = row[2]
@@ -38,7 +38,7 @@ class AlertsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let row:[String] = data[indexPath.row] else { return }
+        let row:[String] = data[indexPath.row]
         guard let url:URL = URL(string: row[3]) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
