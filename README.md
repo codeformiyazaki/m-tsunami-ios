@@ -1,4 +1,4 @@
-# 宮崎津波防災 iOS
+# みやざき防災 iOS
 
 ![](https://github.com/codeformiyazaki/m-tsunami-ios/workflows/CI/badge.svg)
 

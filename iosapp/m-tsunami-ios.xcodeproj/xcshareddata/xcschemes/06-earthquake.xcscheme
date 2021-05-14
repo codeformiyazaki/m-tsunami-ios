@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13C4BD9C21F47C1A00060742"
-               BuildableName = "&#x5bae;&#x5d0e;&#x6d25;&#x6ce2;&#x9632;&#x707d;.app"
+               BuildableName = "&#x307f;&#x3084;&#x3055;&#x3099;&#x304d;&#x9632;&#x707d;.app"
                BlueprintName = "06-earthquake"
                ReferencedContainer = "container:m-tsunami-ios.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13C4BD9C21F47C1A00060742"
-            BuildableName = "&#x5bae;&#x5d0e;&#x6d25;&#x6ce2;&#x9632;&#x707d;.app"
+            BuildableName = "&#x307f;&#x3084;&#x3055;&#x3099;&#x304d;&#x9632;&#x707d;.app"
             BlueprintName = "06-earthquake"
             ReferencedContainer = "container:m-tsunami-ios.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13C4BD9C21F47C1A00060742"
-            BuildableName = "&#x5bae;&#x5d0e;&#x6d25;&#x6ce2;&#x9632;&#x707d;.app"
+            BuildableName = "&#x307f;&#x3084;&#x3055;&#x3099;&#x304d;&#x9632;&#x707d;.app"
             BlueprintName = "06-earthquake"
             ReferencedContainer = "container:m-tsunami-ios.xcodeproj">
          </BuildableReference>
