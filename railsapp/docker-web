@@ -1,0 +1,10 @@
+FROM ruby:2.7.3
+
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN gem install bundler:2.2.15 -N
+RUN gem install rails -v "~> 5.2" -N
+
+RUN mkdir /railsapp
+WORKDIR /railsapp
+COPY ./ /railsapp
+RUN bundle install
