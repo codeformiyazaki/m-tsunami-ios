@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_PASSWORD: secret
     volumes:
-      - ./postgresql/data:/var/lib/postgresql/data
+      - ./tmp/postgresql/data:/var/lib/postgresql/data
   web:
     build:
       context: .
@@ -17,3 +17,5 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    environment:
+      EDITOR: nano
